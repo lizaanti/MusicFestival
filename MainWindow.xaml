@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:MusicFestival"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFFFA2DD">
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="254,165,0,0" VerticalAlignment="Top"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Center"/>
+        <TextBox x:Name="LoginTB" HorizontalAlignment="Center" Margin="0,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+        <PasswordBox x:Name="PassTB" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="138"/>
+        <Button x:Name="logBtn" Content="Войти" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" Height="26" Width="71" Background="#FFB5739D" Click="logBtn_Click"/>
+
     </Grid>
 </Window>

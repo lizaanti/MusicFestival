@@ -12,13 +12,15 @@ namespace MusicFestival
     using System;
     using System.Collections.Generic;
     
-    public partial class Сотрудники
+    public partial class ЗаказБилета
     {
         public int id { get; set; }
-        public int id_фестиваля { get; set; }
-        public string имя { get; set; }
-        public string должность { get; set; }
+        public int id_билета { get; set; }
+        public int id_посетителя { get; set; }
+        public int id_заказа { get; set; }
     
-        public virtual Фестиваль Фестиваль { get; set; }
+        public virtual Билеты Билеты { get; set; }
+        public virtual Заказы Заказы { get; set; }
+        public virtual Посетители Посетители { get; set; }
     }
 }

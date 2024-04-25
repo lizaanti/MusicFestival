@@ -17,7 +17,7 @@ namespace MusicFestival
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Сцены()
         {
-            this.ТаблицаСвязи3 = new HashSet<ТаблицаСвязи3>();
+            this.ВыступленияНаСцене = new HashSet<ВыступленияНаСцене>();
         }
     
         public int id_сцены { get; set; }
@@ -26,6 +26,6 @@ namespace MusicFestival
     
         public virtual Выступления Выступления { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ТаблицаСвязи3> ТаблицаСвязи3 { get; set; }
+        public virtual ICollection<ВыступленияНаСцене> ВыступленияНаСцене { get; set; }
     }
 }

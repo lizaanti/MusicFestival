@@ -27,7 +27,8 @@ namespace MusicFestival
                 _context = new MusFestivalEntities();
             return _context;
         }
-    
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -35,16 +36,21 @@ namespace MusicFestival
     
         public virtual DbSet<Билеты> Билеты { get; set; }
         public virtual DbSet<Выступления> Выступления { get; set; }
+        public virtual DbSet<ВыступленияИсполнителя> ВыступленияИсполнителя { get; set; }
+        public virtual DbSet<ВыступленияНаСцене> ВыступленияНаСцене { get; set; }
+        public virtual DbSet<Должность> Должность { get; set; }
+        public virtual DbSet<Жанр> Жанр { get; set; }
+        public virtual DbSet<ЗаказБилета> ЗаказБилета { get; set; }
         public virtual DbSet<Заказы> Заказы { get; set; }
         public virtual DbSet<Исполнители> Исполнители { get; set; }
         public virtual DbSet<Место> Место { get; set; }
+        public virtual DbSet<НазваниеМест> НазваниеМест { get; set; }
         public virtual DbSet<Песни> Песни { get; set; }
         public virtual DbSet<Посетители> Посетители { get; set; }
+        public virtual DbSet<Роли> Роли { get; set; }
         public virtual DbSet<Сотрудники> Сотрудники { get; set; }
         public virtual DbSet<Сцены> Сцены { get; set; }
-        public virtual DbSet<ТаблицаСвязи1> ТаблицаСвязи1 { get; set; }
-        public virtual DbSet<ТаблицаСвязи2> ТаблицаСвязи2 { get; set; }
-        public virtual DbSet<ТаблицаСвязи3> ТаблицаСвязи3 { get; set; }
+        public virtual DbSet<ТипБилета> ТипБилета { get; set; }
         public virtual DbSet<Фестиваль> Фестиваль { get; set; }
     }
 }

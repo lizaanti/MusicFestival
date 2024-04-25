@@ -18,8 +18,8 @@ namespace MusicFestival
         public Выступления()
         {
             this.Сцены = new HashSet<Сцены>();
-            this.ТаблицаСвязи2 = new HashSet<ТаблицаСвязи2>();
-            this.ТаблицаСвязи3 = new HashSet<ТаблицаСвязи3>();
+            this.ВыступленияИсполнителя = new HashSet<ВыступленияИсполнителя>();
+            this.ВыступленияНаСцене = new HashSet<ВыступленияНаСцене>();
         }
     
         public int id_выступления { get; set; }
@@ -31,8 +31,8 @@ namespace MusicFestival
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Сцены> Сцены { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ТаблицаСвязи2> ТаблицаСвязи2 { get; set; }
+        public virtual ICollection<ВыступленияИсполнителя> ВыступленияИсполнителя { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ТаблицаСвязи3> ТаблицаСвязи3 { get; set; }
+        public virtual ICollection<ВыступленияНаСцене> ВыступленияНаСцене { get; set; }
     }
 }

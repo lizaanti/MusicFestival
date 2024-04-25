@@ -17,17 +17,17 @@ namespace MusicFestival
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Заказы()
         {
-            this.ТаблицаСвязи1 = new HashSet<ТаблицаСвязи1>();
+            this.ЗаказБилета = new HashSet<ЗаказБилета>();
         }
     
         public int id_заказа { get; set; }
-        public Nullable<int> id_билета { get; set; }
-        public Nullable<int> id_посетителя { get; set; }
-        public Nullable<System.DateTime> дата_брони { get; set; }
+        public int id_билета { get; set; }
+        public int id_посетителя { get; set; }
+        public string дата_брони { get; set; }
     
         public virtual Билеты Билеты { get; set; }
-        public virtual Посетители Посетители { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ТаблицаСвязи1> ТаблицаСвязи1 { get; set; }
+        public virtual ICollection<ЗаказБилета> ЗаказБилета { get; set; }
+        public virtual Посетители Посетители { get; set; }
     }
 }

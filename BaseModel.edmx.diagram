@@ -4,35 +4,40 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f5fe00d76ea2460bb91b047764903c42" Name="Diagram1">
-        <EntityTypeShape EntityType="MusFestivalModel.Билеты" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
+      <Diagram DiagramId="0fcc404e4a00442aa0dba3fc5b7c524f" Name="Diagram1">
+        <EntityTypeShape EntityType="MusFestivalModel.Билеты" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MusFestivalModel.Выступления" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusFestivalModel.Заказы" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.ВыступленияИсполнителя" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.ВыступленияНаСцене" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.Должность" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.Жанр" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.ЗаказБилета" Width="1.5" PointX="10" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.Заказы" Width="1.5" PointX="13" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MusFestivalModel.Исполнители" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MusFestivalModel.Место" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.НазваниеМест" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MusFestivalModel.Песни" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusFestivalModel.Посетители" Width="1.5" PointX="7.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.Посетители" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.Роли" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MusFestivalModel.Сотрудники" Width="1.5" PointX="14.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusFestivalModel.Сцены" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusFestivalModel.ТаблицаСвязи1" Width="1.5" PointX="12.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusFestivalModel.ТаблицаСвязи2" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusFestivalModel.ТаблицаСвязи3" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.Сцены" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusFestivalModel.ТипБилета" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MusFestivalModel.Фестиваль" Width="1.5" PointX="12" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="MusFestivalModel.FK__Заказы__id_билет__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_би__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__ЗаказБиле__id_би__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__Заказы__id_билет__66603565" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__Выступлен__id_ис__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__Сцены__id_выступ__3D5E1FD2" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_вы__44FF419A" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_вы__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__Заказы__id_посет__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_за__34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__Песни__id_исполн__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_ис__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__Фестиваль__id_ме__267ABA7A" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_пе__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_по__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="MusFestivalModel.FK__Сотрудник__id_фе__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__ТаблицаСв__id_сц__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__ЗаказБиле__id_за__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__ЗаказБиле__id_по__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__Заказы__id_посет__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__Песни__id_исполн__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__Фестиваль__id_ме__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="MusFestivalModel.FK__Сотрудник__id_фе__571DF1D5" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

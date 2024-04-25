@@ -9,9 +9,9 @@
           <Key>
             <PropertyRef Name="id_билета" />
           </Key>
-          <Property Name="id_билета" Type="int" Nullable="false" />
-          <Property Name="тип_билета" Type="varchar" MaxLength="1" />
-          <Property Name="цена" Type="money" />
+          <Property Name="id_билета" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="тип_билета" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="цена" Type="int" />
         </EntityType>
         <EntityType Name="Выступления">
           <Key>
@@ -22,14 +22,54 @@
           <Property Name="время_начала" Type="time" Precision="7" />
           <Property Name="время_окончания" Type="time" Precision="7" />
         </EntityType>
+        <EntityType Name="ВыступленияИсполнителя">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_исполнителя" Type="int" />
+          <Property Name="id_песни" Type="int" />
+          <Property Name="id_выступления" Type="int" />
+        </EntityType>
+        <EntityType Name="ВыступленияНаСцене">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_сцены" Type="int" />
+          <Property Name="id_выступления" Type="int" />
+        </EntityType>
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="должность" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Жанр">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="жанр" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ЗаказБилета">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_билета" Type="int" Nullable="false" />
+          <Property Name="id_посетителя" Type="int" Nullable="false" />
+          <Property Name="id_заказа" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Заказы">
           <Key>
             <PropertyRef Name="id_заказа" />
           </Key>
           <Property Name="id_заказа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_билета" Type="int" />
-          <Property Name="id_посетителя" Type="int" />
-          <Property Name="дата_брони" Type="date" />
+          <Property Name="id_билета" Type="int" Nullable="false" />
+          <Property Name="id_посетителя" Type="int" Nullable="false" />
+          <Property Name="дата_брони" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Исполнители">
           <Key>
@@ -46,6 +86,13 @@
           <Property Name="id_места" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="название" Type="varchar" MaxLength="50" />
           <Property Name="локация" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="НазваниеМест">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="название_места" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Песни">
           <Key>
@@ -65,14 +112,23 @@
           <Property Name="почта" Type="varchar" MaxLength="50" />
           <Property Name="номер_телефона" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Роли">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="логин" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="пароль" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="роль" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Сотрудники">
           <Key>
-            <PropertyRef Name="id_сотрудника" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="id_сотрудника" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_фестиваля" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_фестиваля" Type="int" Nullable="false" />
           <Property Name="имя" Type="varchar" MaxLength="50" />
-          <Property Name="роль" Type="varchar" MaxLength="50" />
+          <Property Name="должность" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Сцены">
           <Key>
@@ -82,31 +138,12 @@
           <Property Name="id_выступления" Type="int" />
           <Property Name="вместимость_сцены" Type="int" />
         </EntityType>
-        <EntityType Name="ТаблицаСвязи1">
+        <EntityType Name="ТипБилета">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_билета" Type="int" />
-          <Property Name="id_заказа" Type="int" />
-          <Property Name="id_посетителя" Type="int" />
-        </EntityType>
-        <EntityType Name="ТаблицаСвязи2">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_исполнителя" Type="int" />
-          <Property Name="id_песни" Type="int" />
-          <Property Name="id_выступления" Type="int" />
-        </EntityType>
-        <EntityType Name="ТаблицаСвязи3">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_сцены" Type="int" />
-          <Property Name="id_выступления" Type="int" />
+          <Property Name="тип" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Фестиваль">
           <Key>
@@ -130,8 +167,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Заказы__id_билет__300424B4">
-          <End Role="Билеты" Type="Self.Билеты" Multiplicity="0..1" />
+        <Association Name="FK__ЗаказБиле__id_би__6A30C649">
+          <End Role="Билеты" Type="Self.Билеты" Multiplicity="1" />
+          <End Role="ЗаказБилета" Type="Self.ЗаказБилета" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Билеты">
+              <PropertyRef Name="id_билета" />
+            </Principal>
+            <Dependent Role="ЗаказБилета">
+              <PropertyRef Name="id_билета" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗаказБиле__id_за__6C190EBB">
+          <End Role="Заказы" Type="Self.Заказы" Multiplicity="1" />
+          <End Role="ЗаказБилета" Type="Self.ЗаказБилета" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Заказы">
+              <PropertyRef Name="id_заказа" />
+            </Principal>
+            <Dependent Role="ЗаказБилета">
+              <PropertyRef Name="id_заказа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗаказБиле__id_по__6B24EA82">
+          <End Role="Посетители" Type="Self.Посетители" Multiplicity="1" />
+          <End Role="ЗаказБилета" Type="Self.ЗаказБилета" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Посетители">
+              <PropertyRef Name="id_посетителя" />
+            </Principal>
+            <Dependent Role="ЗаказБилета">
+              <PropertyRef Name="id_посетителя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Заказы__id_билет__66603565">
+          <End Role="Билеты" Type="Self.Билеты" Multiplicity="1" />
           <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Билеты">
@@ -142,8 +215,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Заказы__id_посет__30F848ED">
-          <End Role="Посетители" Type="Self.Посетители" Multiplicity="0..1" />
+        <Association Name="FK__Заказы__id_посет__6754599E">
+          <End Role="Посетители" Type="Self.Посетители" Multiplicity="1" />
           <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Посетители">
@@ -166,8 +239,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Сотрудник__id_фе__29572725">
-          <End Role="Фестиваль" Type="Self.Фестиваль" Multiplicity="0..1" />
+        <Association Name="FK__Сотрудник__id_фе__571DF1D5">
+          <End Role="Фестиваль" Type="Self.Фестиваль" Multiplicity="1" />
           <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Фестиваль">
@@ -190,98 +263,62 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ТаблицаСв__id_би__33D4B598">
-          <End Role="Билеты" Type="Self.Билеты" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи1" Type="Self.ТаблицаСвязи1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Билеты">
-              <PropertyRef Name="id_билета" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи1">
-              <PropertyRef Name="id_билета" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__ТаблицаСв__id_вы__44FF419A">
           <End Role="Выступления" Type="Self.Выступления" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи2" Type="Self.ТаблицаСвязи2" Multiplicity="*" />
+          <End Role="ВыступленияИсполнителя" Type="Self.ВыступленияИсполнителя" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Выступления">
               <PropertyRef Name="id_выступления" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи2">
+            <Dependent Role="ВыступленияИсполнителя">
               <PropertyRef Name="id_выступления" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ТаблицаСв__id_вы__48CFD27E">
           <End Role="Выступления" Type="Self.Выступления" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи3" Type="Self.ТаблицаСвязи3" Multiplicity="*" />
+          <End Role="ВыступленияНаСцене" Type="Self.ВыступленияНаСцене" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Выступления">
               <PropertyRef Name="id_выступления" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи3">
+            <Dependent Role="ВыступленияНаСцене">
               <PropertyRef Name="id_выступления" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ТаблицаСв__id_за__34C8D9D1">
-          <End Role="Заказы" Type="Self.Заказы" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи1" Type="Self.ТаблицаСвязи1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Заказы">
-              <PropertyRef Name="id_заказа" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи1">
-              <PropertyRef Name="id_заказа" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ТаблицаСв__id_ис__4316F928">
           <End Role="Исполнители" Type="Self.Исполнители" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи2" Type="Self.ТаблицаСвязи2" Multiplicity="*" />
+          <End Role="ВыступленияИсполнителя" Type="Self.ВыступленияИсполнителя" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Исполнители">
               <PropertyRef Name="id_исполнителя" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи2">
+            <Dependent Role="ВыступленияИсполнителя">
               <PropertyRef Name="id_исполнителя" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ТаблицаСв__id_пе__440B1D61">
           <End Role="Песни" Type="Self.Песни" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи2" Type="Self.ТаблицаСвязи2" Multiplicity="*" />
+          <End Role="ВыступленияИсполнителя" Type="Self.ВыступленияИсполнителя" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Песни">
               <PropertyRef Name="id_песни" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи2">
+            <Dependent Role="ВыступленияИсполнителя">
               <PropertyRef Name="id_песни" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ТаблицаСв__id_по__35BCFE0A">
-          <End Role="Посетители" Type="Self.Посетители" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи1" Type="Self.ТаблицаСвязи1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Посетители">
-              <PropertyRef Name="id_посетителя" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи1">
-              <PropertyRef Name="id_посетителя" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ТаблицаСв__id_сц__47DBAE45">
           <End Role="Сцены" Type="Self.Сцены" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи3" Type="Self.ТаблицаСвязи3" Multiplicity="*" />
+          <End Role="ВыступленияНаСцене" Type="Self.ВыступленияНаСцене" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Сцены">
               <PropertyRef Name="id_сцены" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи3">
+            <Dependent Role="ВыступленияНаСцене">
               <PropertyRef Name="id_сцены" />
             </Dependent>
           </ReferentialConstraint>
@@ -301,26 +338,43 @@
         <EntityContainer Name="Хранилище MusFestivalModelContainer">
           <EntitySet Name="Билеты" EntityType="Self.Билеты" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Выступления" EntityType="Self.Выступления" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ВыступленияИсполнителя" EntityType="Self.ВыступленияИсполнителя" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ВыступленияНаСцене" EntityType="Self.ВыступленияНаСцене" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Жанр" EntityType="Self.Жанр" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ЗаказБилета" EntityType="Self.ЗаказБилета" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Заказы" EntityType="Self.Заказы" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Исполнители" EntityType="Self.Исполнители" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Место" EntityType="Self.Место" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="НазваниеМест" EntityType="Self.НазваниеМест" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Песни" EntityType="Self.Песни" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Посетители" EntityType="Self.Посетители" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Роли" EntityType="Self.Роли" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сцены" EntityType="Self.Сцены" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ТаблицаСвязи1" EntityType="Self.ТаблицаСвязи1" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ТаблицаСвязи2" EntityType="Self.ТаблицаСвязи2" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ТаблицаСвязи3" EntityType="Self.ТаблицаСвязи3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ТипБилета" EntityType="Self.ТипБилета" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Фестиваль" EntityType="Self.Фестиваль" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Выступлен__id_ис__3A81B327" Association="Self.FK__Выступлен__id_ис__3A81B327">
             <End Role="Исполнители" EntitySet="Исполнители" />
             <End Role="Выступления" EntitySet="Выступления" />
           </AssociationSet>
-          <AssociationSet Name="FK__Заказы__id_билет__300424B4" Association="Self.FK__Заказы__id_билет__300424B4">
+          <AssociationSet Name="FK__ЗаказБиле__id_би__6A30C649" Association="Self.FK__ЗаказБиле__id_би__6A30C649">
+            <End Role="Билеты" EntitySet="Билеты" />
+            <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗаказБиле__id_за__6C190EBB" Association="Self.FK__ЗаказБиле__id_за__6C190EBB">
+            <End Role="Заказы" EntitySet="Заказы" />
+            <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗаказБиле__id_по__6B24EA82" Association="Self.FK__ЗаказБиле__id_по__6B24EA82">
+            <End Role="Посетители" EntitySet="Посетители" />
+            <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Заказы__id_билет__66603565" Association="Self.FK__Заказы__id_билет__66603565">
             <End Role="Билеты" EntitySet="Билеты" />
             <End Role="Заказы" EntitySet="Заказы" />
           </AssociationSet>
-          <AssociationSet Name="FK__Заказы__id_посет__30F848ED" Association="Self.FK__Заказы__id_посет__30F848ED">
+          <AssociationSet Name="FK__Заказы__id_посет__6754599E" Association="Self.FK__Заказы__id_посет__6754599E">
             <End Role="Посетители" EntitySet="Посетители" />
             <End Role="Заказы" EntitySet="Заказы" />
           </AssociationSet>
@@ -328,7 +382,7 @@
             <End Role="Исполнители" EntitySet="Исполнители" />
             <End Role="Песни" EntitySet="Песни" />
           </AssociationSet>
-          <AssociationSet Name="FK__Сотрудник__id_фе__29572725" Association="Self.FK__Сотрудник__id_фе__29572725">
+          <AssociationSet Name="FK__Сотрудник__id_фе__571DF1D5" Association="Self.FK__Сотрудник__id_фе__571DF1D5">
             <End Role="Фестиваль" EntitySet="Фестиваль" />
             <End Role="Сотрудники" EntitySet="Сотрудники" />
           </AssociationSet>
@@ -336,37 +390,25 @@
             <End Role="Выступления" EntitySet="Выступления" />
             <End Role="Сцены" EntitySet="Сцены" />
           </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_би__33D4B598" Association="Self.FK__ТаблицаСв__id_би__33D4B598">
-            <End Role="Билеты" EntitySet="Билеты" />
-            <End Role="ТаблицаСвязи1" EntitySet="ТаблицаСвязи1" />
-          </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_вы__44FF419A" Association="Self.FK__ТаблицаСв__id_вы__44FF419A">
             <End Role="Выступления" EntitySet="Выступления" />
-            <End Role="ТаблицаСвязи2" EntitySet="ТаблицаСвязи2" />
+            <End Role="ВыступленияИсполнителя" EntitySet="ВыступленияИсполнителя" />
           </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_вы__48CFD27E" Association="Self.FK__ТаблицаСв__id_вы__48CFD27E">
             <End Role="Выступления" EntitySet="Выступления" />
-            <End Role="ТаблицаСвязи3" EntitySet="ТаблицаСвязи3" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_за__34C8D9D1" Association="Self.FK__ТаблицаСв__id_за__34C8D9D1">
-            <End Role="Заказы" EntitySet="Заказы" />
-            <End Role="ТаблицаСвязи1" EntitySet="ТаблицаСвязи1" />
+            <End Role="ВыступленияНаСцене" EntitySet="ВыступленияНаСцене" />
           </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_ис__4316F928" Association="Self.FK__ТаблицаСв__id_ис__4316F928">
             <End Role="Исполнители" EntitySet="Исполнители" />
-            <End Role="ТаблицаСвязи2" EntitySet="ТаблицаСвязи2" />
+            <End Role="ВыступленияИсполнителя" EntitySet="ВыступленияИсполнителя" />
           </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_пе__440B1D61" Association="Self.FK__ТаблицаСв__id_пе__440B1D61">
             <End Role="Песни" EntitySet="Песни" />
-            <End Role="ТаблицаСвязи2" EntitySet="ТаблицаСвязи2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_по__35BCFE0A" Association="Self.FK__ТаблицаСв__id_по__35BCFE0A">
-            <End Role="Посетители" EntitySet="Посетители" />
-            <End Role="ТаблицаСвязи1" EntitySet="ТаблицаСвязи1" />
+            <End Role="ВыступленияИсполнителя" EntitySet="ВыступленияИсполнителя" />
           </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_сц__47DBAE45" Association="Self.FK__ТаблицаСв__id_сц__47DBAE45">
             <End Role="Сцены" EntitySet="Сцены" />
-            <End Role="ТаблицаСвязи3" EntitySet="ТаблицаСвязи3" />
+            <End Role="ВыступленияНаСцене" EntitySet="ВыступленияНаСцене" />
           </AssociationSet>
           <AssociationSet Name="FK__Фестиваль__id_ме__267ABA7A" Association="Self.FK__Фестиваль__id_ме__267ABA7A">
             <End Role="Место" EntitySet="Место" />
@@ -382,11 +424,11 @@
           <Key>
             <PropertyRef Name="id_билета" />
           </Key>
-          <Property Name="id_билета" Type="Int32" Nullable="false" />
-          <Property Name="тип_билета" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="цена" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="Заказы" Relationship="Self.FK__Заказы__id_билет__300424B4" FromRole="Билеты" ToRole="Заказы" />
-          <NavigationProperty Name="ТаблицаСвязи1" Relationship="Self.FK__ТаблицаСв__id_би__33D4B598" FromRole="Билеты" ToRole="ТаблицаСвязи1" />
+          <Property Name="id_билета" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="тип_билета" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="цена" Type="Int32" />
+          <NavigationProperty Name="ЗаказБилета" Relationship="Self.FK__ЗаказБиле__id_би__6A30C649" FromRole="Билеты" ToRole="ЗаказБилета" />
+          <NavigationProperty Name="Заказы" Relationship="Self.FK__Заказы__id_билет__66603565" FromRole="Билеты" ToRole="Заказы" />
         </EntityType>
         <EntityType Name="Выступления">
           <Key>
@@ -398,20 +440,68 @@
           <Property Name="время_окончания" Type="Time" Precision="7" />
           <NavigationProperty Name="Исполнители" Relationship="Self.FK__Выступлен__id_ис__3A81B327" FromRole="Выступления" ToRole="Исполнители" />
           <NavigationProperty Name="Сцены" Relationship="Self.FK__Сцены__id_выступ__3D5E1FD2" FromRole="Выступления" ToRole="Сцены" />
-          <NavigationProperty Name="ТаблицаСвязи2" Relationship="Self.FK__ТаблицаСв__id_вы__44FF419A" FromRole="Выступления" ToRole="ТаблицаСвязи2" />
-          <NavigationProperty Name="ТаблицаСвязи3" Relationship="Self.FK__ТаблицаСв__id_вы__48CFD27E" FromRole="Выступления" ToRole="ТаблицаСвязи3" />
+          <NavigationProperty Name="ВыступленияИсполнителя" Relationship="Self.FK__ТаблицаСв__id_вы__44FF419A" FromRole="Выступления" ToRole="ВыступленияИсполнителя" />
+          <NavigationProperty Name="ВыступленияНаСцене" Relationship="Self.FK__ТаблицаСв__id_вы__48CFD27E" FromRole="Выступления" ToRole="ВыступленияНаСцене" />
+        </EntityType>
+        <EntityType Name="ВыступленияИсполнителя">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_исполнителя" Type="Int32" />
+          <Property Name="id_песни" Type="Int32" />
+          <Property Name="id_выступления" Type="Int32" />
+          <NavigationProperty Name="Выступления" Relationship="Self.FK__ТаблицаСв__id_вы__44FF419A" FromRole="ВыступленияИсполнителя" ToRole="Выступления" />
+          <NavigationProperty Name="Исполнители" Relationship="Self.FK__ТаблицаСв__id_ис__4316F928" FromRole="ВыступленияИсполнителя" ToRole="Исполнители" />
+          <NavigationProperty Name="Песни" Relationship="Self.FK__ТаблицаСв__id_пе__440B1D61" FromRole="ВыступленияИсполнителя" ToRole="Песни" />
+        </EntityType>
+        <EntityType Name="ВыступленияНаСцене">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_сцены" Type="Int32" />
+          <Property Name="id_выступления" Type="Int32" />
+          <NavigationProperty Name="Выступления" Relationship="Self.FK__ТаблицаСв__id_вы__48CFD27E" FromRole="ВыступленияНаСцене" ToRole="Выступления" />
+          <NavigationProperty Name="Сцены" Relationship="Self.FK__ТаблицаСв__id_сц__47DBAE45" FromRole="ВыступленияНаСцене" ToRole="Сцены" />
+        </EntityType>
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="должность1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Жанр">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="жанр1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ЗаказБилета">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_билета" Type="Int32" Nullable="false" />
+          <Property Name="id_посетителя" Type="Int32" Nullable="false" />
+          <Property Name="id_заказа" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Билеты" Relationship="Self.FK__ЗаказБиле__id_би__6A30C649" FromRole="ЗаказБилета" ToRole="Билеты" />
+          <NavigationProperty Name="Заказы" Relationship="Self.FK__ЗаказБиле__id_за__6C190EBB" FromRole="ЗаказБилета" ToRole="Заказы" />
+          <NavigationProperty Name="Посетители" Relationship="Self.FK__ЗаказБиле__id_по__6B24EA82" FromRole="ЗаказБилета" ToRole="Посетители" />
         </EntityType>
         <EntityType Name="Заказы">
           <Key>
             <PropertyRef Name="id_заказа" />
           </Key>
           <Property Name="id_заказа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_билета" Type="Int32" />
-          <Property Name="id_посетителя" Type="Int32" />
-          <Property Name="дата_брони" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Билеты" Relationship="Self.FK__Заказы__id_билет__300424B4" FromRole="Заказы" ToRole="Билеты" />
-          <NavigationProperty Name="Посетители" Relationship="Self.FK__Заказы__id_посет__30F848ED" FromRole="Заказы" ToRole="Посетители" />
-          <NavigationProperty Name="ТаблицаСвязи1" Relationship="Self.FK__ТаблицаСв__id_за__34C8D9D1" FromRole="Заказы" ToRole="ТаблицаСвязи1" />
+          <Property Name="id_билета" Type="Int32" Nullable="false" />
+          <Property Name="id_посетителя" Type="Int32" Nullable="false" />
+          <Property Name="дата_брони" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Билеты" Relationship="Self.FK__Заказы__id_билет__66603565" FromRole="Заказы" ToRole="Билеты" />
+          <NavigationProperty Name="ЗаказБилета" Relationship="Self.FK__ЗаказБиле__id_за__6C190EBB" FromRole="Заказы" ToRole="ЗаказБилета" />
+          <NavigationProperty Name="Посетители" Relationship="Self.FK__Заказы__id_посет__6754599E" FromRole="Заказы" ToRole="Посетители" />
         </EntityType>
         <EntityType Name="Исполнители">
           <Key>
@@ -421,8 +511,8 @@
           <Property Name="имя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="жанр" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Выступления" Relationship="Self.FK__Выступлен__id_ис__3A81B327" FromRole="Исполнители" ToRole="Выступления" />
+          <NavigationProperty Name="ВыступленияИсполнителя" Relationship="Self.FK__ТаблицаСв__id_ис__4316F928" FromRole="Исполнители" ToRole="ВыступленияИсполнителя" />
           <NavigationProperty Name="Песни" Relationship="Self.FK__Песни__id_исполн__403A8C7D" FromRole="Исполнители" ToRole="Песни" />
-          <NavigationProperty Name="ТаблицаСвязи2" Relationship="Self.FK__ТаблицаСв__id_ис__4316F928" FromRole="Исполнители" ToRole="ТаблицаСвязи2" />
         </EntityType>
         <EntityType Name="Место">
           <Key>
@@ -433,6 +523,13 @@
           <Property Name="локация" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Фестиваль" Relationship="Self.FK__Фестиваль__id_ме__267ABA7A" FromRole="Место" ToRole="Фестиваль" />
         </EntityType>
+        <EntityType Name="НазваниеМест">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="название_места" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Песни">
           <Key>
             <PropertyRef Name="id_песни" />
@@ -441,8 +538,8 @@
           <Property Name="id_исполнителя" Type="Int32" />
           <Property Name="название_песни" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="продолжительность_песни" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ВыступленияИсполнителя" Relationship="Self.FK__ТаблицаСв__id_пе__440B1D61" FromRole="Песни" ToRole="ВыступленияИсполнителя" />
           <NavigationProperty Name="Исполнители" Relationship="Self.FK__Песни__id_исполн__403A8C7D" FromRole="Песни" ToRole="Исполнители" />
-          <NavigationProperty Name="ТаблицаСвязи2" Relationship="Self.FK__ТаблицаСв__id_пе__440B1D61" FromRole="Песни" ToRole="ТаблицаСвязи2" />
         </EntityType>
         <EntityType Name="Посетители">
           <Key>
@@ -452,18 +549,27 @@
           <Property Name="ФИО" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="почта" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="номер_телефона" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Заказы" Relationship="Self.FK__Заказы__id_посет__30F848ED" FromRole="Посетители" ToRole="Заказы" />
-          <NavigationProperty Name="ТаблицаСвязи1" Relationship="Self.FK__ТаблицаСв__id_по__35BCFE0A" FromRole="Посетители" ToRole="ТаблицаСвязи1" />
+          <NavigationProperty Name="ЗаказБилета" Relationship="Self.FK__ЗаказБиле__id_по__6B24EA82" FromRole="Посетители" ToRole="ЗаказБилета" />
+          <NavigationProperty Name="Заказы" Relationship="Self.FK__Заказы__id_посет__6754599E" FromRole="Посетители" ToRole="Заказы" />
+        </EntityType>
+        <EntityType Name="Роли">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="логин" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="пароль" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="роль" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Сотрудники">
           <Key>
-            <PropertyRef Name="id_сотрудника" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="id_сотрудника" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_фестиваля" Type="Int32" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_фестиваля" Type="Int32" Nullable="false" />
           <Property Name="имя" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="роль" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Фестиваль" Relationship="Self.FK__Сотрудник__id_фе__29572725" FromRole="Сотрудники" ToRole="Фестиваль" />
+          <Property Name="должность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Фестиваль" Relationship="Self.FK__Сотрудник__id_фе__571DF1D5" FromRole="Сотрудники" ToRole="Фестиваль" />
         </EntityType>
         <EntityType Name="Сцены">
           <Key>
@@ -473,41 +579,14 @@
           <Property Name="id_выступления" Type="Int32" />
           <Property Name="вместимость_сцены" Type="Int32" />
           <NavigationProperty Name="Выступления" Relationship="Self.FK__Сцены__id_выступ__3D5E1FD2" FromRole="Сцены" ToRole="Выступления" />
-          <NavigationProperty Name="ТаблицаСвязи3" Relationship="Self.FK__ТаблицаСв__id_сц__47DBAE45" FromRole="Сцены" ToRole="ТаблицаСвязи3" />
+          <NavigationProperty Name="ВыступленияНаСцене" Relationship="Self.FK__ТаблицаСв__id_сц__47DBAE45" FromRole="Сцены" ToRole="ВыступленияНаСцене" />
         </EntityType>
-        <EntityType Name="ТаблицаСвязи1">
+        <EntityType Name="ТипБилета">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_билета" Type="Int32" />
-          <Property Name="id_заказа" Type="Int32" />
-          <Property Name="id_посетителя" Type="Int32" />
-          <NavigationProperty Name="Билеты" Relationship="Self.FK__ТаблицаСв__id_би__33D4B598" FromRole="ТаблицаСвязи1" ToRole="Билеты" />
-          <NavigationProperty Name="Заказы" Relationship="Self.FK__ТаблицаСв__id_за__34C8D9D1" FromRole="ТаблицаСвязи1" ToRole="Заказы" />
-          <NavigationProperty Name="Посетители" Relationship="Self.FK__ТаблицаСв__id_по__35BCFE0A" FromRole="ТаблицаСвязи1" ToRole="Посетители" />
-        </EntityType>
-        <EntityType Name="ТаблицаСвязи2">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_исполнителя" Type="Int32" />
-          <Property Name="id_песни" Type="Int32" />
-          <Property Name="id_выступления" Type="Int32" />
-          <NavigationProperty Name="Выступления" Relationship="Self.FK__ТаблицаСв__id_вы__44FF419A" FromRole="ТаблицаСвязи2" ToRole="Выступления" />
-          <NavigationProperty Name="Исполнители" Relationship="Self.FK__ТаблицаСв__id_ис__4316F928" FromRole="ТаблицаСвязи2" ToRole="Исполнители" />
-          <NavigationProperty Name="Песни" Relationship="Self.FK__ТаблицаСв__id_пе__440B1D61" FromRole="ТаблицаСвязи2" ToRole="Песни" />
-        </EntityType>
-        <EntityType Name="ТаблицаСвязи3">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_сцены" Type="Int32" />
-          <Property Name="id_выступления" Type="Int32" />
-          <NavigationProperty Name="Выступления" Relationship="Self.FK__ТаблицаСв__id_вы__48CFD27E" FromRole="ТаблицаСвязи3" ToRole="Выступления" />
-          <NavigationProperty Name="Сцены" Relationship="Self.FK__ТаблицаСв__id_сц__47DBAE45" FromRole="ТаблицаСвязи3" ToRole="Сцены" />
+          <Property Name="тип" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Фестиваль">
           <Key>
@@ -519,28 +598,28 @@
           <Property Name="дата_начала" Type="DateTime" Precision="0" />
           <Property Name="дата_окончания" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Место" Relationship="Self.FK__Фестиваль__id_ме__267ABA7A" FromRole="Фестиваль" ToRole="Место" />
-          <NavigationProperty Name="Сотрудники" Relationship="Self.FK__Сотрудник__id_фе__29572725" FromRole="Фестиваль" ToRole="Сотрудники" />
+          <NavigationProperty Name="Сотрудники" Relationship="Self.FK__Сотрудник__id_фе__571DF1D5" FromRole="Фестиваль" ToRole="Сотрудники" />
         </EntityType>
-        <Association Name="FK__Заказы__id_билет__300424B4">
-          <End Role="Билеты" Type="Self.Билеты" Multiplicity="0..1" />
+        <Association Name="FK__ЗаказБиле__id_би__6A30C649">
+          <End Role="Билеты" Type="Self.Билеты" Multiplicity="1" />
+          <End Role="ЗаказБилета" Type="Self.ЗаказБилета" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Билеты">
+              <PropertyRef Name="id_билета" />
+            </Principal>
+            <Dependent Role="ЗаказБилета">
+              <PropertyRef Name="id_билета" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Заказы__id_билет__66603565">
+          <End Role="Билеты" Type="Self.Билеты" Multiplicity="1" />
           <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Билеты">
               <PropertyRef Name="id_билета" />
             </Principal>
             <Dependent Role="Заказы">
-              <PropertyRef Name="id_билета" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ТаблицаСв__id_би__33D4B598">
-          <End Role="Билеты" Type="Self.Билеты" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи1" Type="Self.ТаблицаСвязи1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Билеты">
-              <PropertyRef Name="id_билета" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи1">
               <PropertyRef Name="id_билета" />
             </Dependent>
           </ReferentialConstraint>
@@ -571,30 +650,90 @@
         </Association>
         <Association Name="FK__ТаблицаСв__id_вы__44FF419A">
           <End Role="Выступления" Type="Self.Выступления" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи2" Type="Self.ТаблицаСвязи2" Multiplicity="*" />
+          <End Role="ВыступленияИсполнителя" Type="Self.ВыступленияИсполнителя" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Выступления">
               <PropertyRef Name="id_выступления" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи2">
+            <Dependent Role="ВыступленияИсполнителя">
               <PropertyRef Name="id_выступления" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ТаблицаСв__id_вы__48CFD27E">
           <End Role="Выступления" Type="Self.Выступления" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи3" Type="Self.ТаблицаСвязи3" Multiplicity="*" />
+          <End Role="ВыступленияНаСцене" Type="Self.ВыступленияНаСцене" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Выступления">
               <PropertyRef Name="id_выступления" />
             </Principal>
-            <Dependent Role="ТаблицаСвязи3">
+            <Dependent Role="ВыступленияНаСцене">
               <PropertyRef Name="id_выступления" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Заказы__id_посет__30F848ED">
-          <End Role="Посетители" Type="Self.Посетители" Multiplicity="0..1" />
+        <Association Name="FK__ТаблицаСв__id_ис__4316F928">
+          <End Role="Исполнители" Type="Self.Исполнители" Multiplicity="0..1" />
+          <End Role="ВыступленияИсполнителя" Type="Self.ВыступленияИсполнителя" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Исполнители">
+              <PropertyRef Name="id_исполнителя" />
+            </Principal>
+            <Dependent Role="ВыступленияИсполнителя">
+              <PropertyRef Name="id_исполнителя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ТаблицаСв__id_пе__440B1D61">
+          <End Role="Песни" Type="Self.Песни" Multiplicity="0..1" />
+          <End Role="ВыступленияИсполнителя" Type="Self.ВыступленияИсполнителя" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Песни">
+              <PropertyRef Name="id_песни" />
+            </Principal>
+            <Dependent Role="ВыступленияИсполнителя">
+              <PropertyRef Name="id_песни" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ТаблицаСв__id_сц__47DBAE45">
+          <End Role="Сцены" Type="Self.Сцены" Multiplicity="0..1" />
+          <End Role="ВыступленияНаСцене" Type="Self.ВыступленияНаСцене" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сцены">
+              <PropertyRef Name="id_сцены" />
+            </Principal>
+            <Dependent Role="ВыступленияНаСцене">
+              <PropertyRef Name="id_сцены" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗаказБиле__id_за__6C190EBB">
+          <End Role="Заказы" Type="Self.Заказы" Multiplicity="1" />
+          <End Role="ЗаказБилета" Type="Self.ЗаказБилета" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Заказы">
+              <PropertyRef Name="id_заказа" />
+            </Principal>
+            <Dependent Role="ЗаказБилета">
+              <PropertyRef Name="id_заказа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ЗаказБиле__id_по__6B24EA82">
+          <End Role="Посетители" Type="Self.Посетители" Multiplicity="1" />
+          <End Role="ЗаказБилета" Type="Self.ЗаказБилета" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Посетители">
+              <PropertyRef Name="id_посетителя" />
+            </Principal>
+            <Dependent Role="ЗаказБилета">
+              <PropertyRef Name="id_посетителя" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Заказы__id_посет__6754599E">
+          <End Role="Посетители" Type="Self.Посетители" Multiplicity="1" />
           <End Role="Заказы" Type="Self.Заказы" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Посетители">
@@ -602,18 +741,6 @@
             </Principal>
             <Dependent Role="Заказы">
               <PropertyRef Name="id_посетителя" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ТаблицаСв__id_за__34C8D9D1">
-          <End Role="Заказы" Type="Self.Заказы" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи1" Type="Self.ТаблицаСвязи1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Заказы">
-              <PropertyRef Name="id_заказа" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи1">
-              <PropertyRef Name="id_заказа" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -625,18 +752,6 @@
               <PropertyRef Name="id_исполнителя" />
             </Principal>
             <Dependent Role="Песни">
-              <PropertyRef Name="id_исполнителя" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ТаблицаСв__id_ис__4316F928">
-          <End Role="Исполнители" Type="Self.Исполнители" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи2" Type="Self.ТаблицаСвязи2" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Исполнители">
-              <PropertyRef Name="id_исполнителя" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи2">
               <PropertyRef Name="id_исполнителя" />
             </Dependent>
           </ReferentialConstraint>
@@ -653,32 +768,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ТаблицаСв__id_пе__440B1D61">
-          <End Role="Песни" Type="Self.Песни" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи2" Type="Self.ТаблицаСвязи2" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Песни">
-              <PropertyRef Name="id_песни" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи2">
-              <PropertyRef Name="id_песни" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ТаблицаСв__id_по__35BCFE0A">
-          <End Role="Посетители" Type="Self.Посетители" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи1" Type="Self.ТаблицаСвязи1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Посетители">
-              <PropertyRef Name="id_посетителя" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи1">
-              <PropertyRef Name="id_посетителя" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Сотрудник__id_фе__29572725">
-          <End Role="Фестиваль" Type="Self.Фестиваль" Multiplicity="0..1" />
+        <Association Name="FK__Сотрудник__id_фе__571DF1D5">
+          <End Role="Фестиваль" Type="Self.Фестиваль" Multiplicity="1" />
           <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Фестиваль">
@@ -689,39 +780,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ТаблицаСв__id_сц__47DBAE45">
-          <End Role="Сцены" Type="Self.Сцены" Multiplicity="0..1" />
-          <End Role="ТаблицаСвязи3" Type="Self.ТаблицаСвязи3" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Сцены">
-              <PropertyRef Name="id_сцены" />
-            </Principal>
-            <Dependent Role="ТаблицаСвязи3">
-              <PropertyRef Name="id_сцены" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MusFestivalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Билеты" EntityType="Self.Билеты" />
           <EntitySet Name="Выступления" EntityType="Self.Выступления" />
+          <EntitySet Name="ВыступленияИсполнителя" EntityType="Self.ВыступленияИсполнителя" />
+          <EntitySet Name="ВыступленияНаСцене" EntityType="Self.ВыступленияНаСцене" />
+          <EntitySet Name="Должность" EntityType="Self.Должность" />
+          <EntitySet Name="Жанр" EntityType="Self.Жанр" />
+          <EntitySet Name="ЗаказБилета" EntityType="Self.ЗаказБилета" />
           <EntitySet Name="Заказы" EntityType="Self.Заказы" />
           <EntitySet Name="Исполнители" EntityType="Self.Исполнители" />
           <EntitySet Name="Место" EntityType="Self.Место" />
+          <EntitySet Name="НазваниеМест" EntityType="Self.НазваниеМест" />
           <EntitySet Name="Песни" EntityType="Self.Песни" />
           <EntitySet Name="Посетители" EntityType="Self.Посетители" />
+          <EntitySet Name="Роли" EntityType="Self.Роли" />
           <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" />
           <EntitySet Name="Сцены" EntityType="Self.Сцены" />
-          <EntitySet Name="ТаблицаСвязи1" EntityType="Self.ТаблицаСвязи1" />
-          <EntitySet Name="ТаблицаСвязи2" EntityType="Self.ТаблицаСвязи2" />
-          <EntitySet Name="ТаблицаСвязи3" EntityType="Self.ТаблицаСвязи3" />
+          <EntitySet Name="ТипБилета" EntityType="Self.ТипБилета" />
           <EntitySet Name="Фестиваль" EntityType="Self.Фестиваль" />
-          <AssociationSet Name="FK__Заказы__id_билет__300424B4" Association="Self.FK__Заказы__id_билет__300424B4">
+          <AssociationSet Name="FK__ЗаказБиле__id_би__6A30C649" Association="Self.FK__ЗаказБиле__id_би__6A30C649">
+            <End Role="Билеты" EntitySet="Билеты" />
+            <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Заказы__id_билет__66603565" Association="Self.FK__Заказы__id_билет__66603565">
             <End Role="Билеты" EntitySet="Билеты" />
             <End Role="Заказы" EntitySet="Заказы" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_би__33D4B598" Association="Self.FK__ТаблицаСв__id_би__33D4B598">
-            <End Role="Билеты" EntitySet="Билеты" />
-            <End Role="ТаблицаСвязи1" EntitySet="ТаблицаСвязи1" />
           </AssociationSet>
           <AssociationSet Name="FK__Выступлен__id_ис__3A81B327" Association="Self.FK__Выступлен__id_ис__3A81B327">
             <End Role="Исполнители" EntitySet="Исполнители" />
@@ -733,47 +817,47 @@
           </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_вы__44FF419A" Association="Self.FK__ТаблицаСв__id_вы__44FF419A">
             <End Role="Выступления" EntitySet="Выступления" />
-            <End Role="ТаблицаСвязи2" EntitySet="ТаблицаСвязи2" />
+            <End Role="ВыступленияИсполнителя" EntitySet="ВыступленияИсполнителя" />
           </AssociationSet>
           <AssociationSet Name="FK__ТаблицаСв__id_вы__48CFD27E" Association="Self.FK__ТаблицаСв__id_вы__48CFD27E">
             <End Role="Выступления" EntitySet="Выступления" />
-            <End Role="ТаблицаСвязи3" EntitySet="ТаблицаСвязи3" />
+            <End Role="ВыступленияНаСцене" EntitySet="ВыступленияНаСцене" />
           </AssociationSet>
-          <AssociationSet Name="FK__Заказы__id_посет__30F848ED" Association="Self.FK__Заказы__id_посет__30F848ED">
+          <AssociationSet Name="FK__ТаблицаСв__id_ис__4316F928" Association="Self.FK__ТаблицаСв__id_ис__4316F928">
+            <End Role="Исполнители" EntitySet="Исполнители" />
+            <End Role="ВыступленияИсполнителя" EntitySet="ВыступленияИсполнителя" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ТаблицаСв__id_пе__440B1D61" Association="Self.FK__ТаблицаСв__id_пе__440B1D61">
+            <End Role="Песни" EntitySet="Песни" />
+            <End Role="ВыступленияИсполнителя" EntitySet="ВыступленияИсполнителя" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ТаблицаСв__id_сц__47DBAE45" Association="Self.FK__ТаблицаСв__id_сц__47DBAE45">
+            <End Role="Сцены" EntitySet="Сцены" />
+            <End Role="ВыступленияНаСцене" EntitySet="ВыступленияНаСцене" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗаказБиле__id_за__6C190EBB" Association="Self.FK__ЗаказБиле__id_за__6C190EBB">
+            <End Role="Заказы" EntitySet="Заказы" />
+            <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ЗаказБиле__id_по__6B24EA82" Association="Self.FK__ЗаказБиле__id_по__6B24EA82">
+            <End Role="Посетители" EntitySet="Посетители" />
+            <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Заказы__id_посет__6754599E" Association="Self.FK__Заказы__id_посет__6754599E">
             <End Role="Посетители" EntitySet="Посетители" />
             <End Role="Заказы" EntitySet="Заказы" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_за__34C8D9D1" Association="Self.FK__ТаблицаСв__id_за__34C8D9D1">
-            <End Role="Заказы" EntitySet="Заказы" />
-            <End Role="ТаблицаСвязи1" EntitySet="ТаблицаСвязи1" />
           </AssociationSet>
           <AssociationSet Name="FK__Песни__id_исполн__403A8C7D" Association="Self.FK__Песни__id_исполн__403A8C7D">
             <End Role="Исполнители" EntitySet="Исполнители" />
             <End Role="Песни" EntitySet="Песни" />
           </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_ис__4316F928" Association="Self.FK__ТаблицаСв__id_ис__4316F928">
-            <End Role="Исполнители" EntitySet="Исполнители" />
-            <End Role="ТаблицаСвязи2" EntitySet="ТаблицаСвязи2" />
-          </AssociationSet>
           <AssociationSet Name="FK__Фестиваль__id_ме__267ABA7A" Association="Self.FK__Фестиваль__id_ме__267ABA7A">
             <End Role="Место" EntitySet="Место" />
             <End Role="Фестиваль" EntitySet="Фестиваль" />
           </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_пе__440B1D61" Association="Self.FK__ТаблицаСв__id_пе__440B1D61">
-            <End Role="Песни" EntitySet="Песни" />
-            <End Role="ТаблицаСвязи2" EntitySet="ТаблицаСвязи2" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_по__35BCFE0A" Association="Self.FK__ТаблицаСв__id_по__35BCFE0A">
-            <End Role="Посетители" EntitySet="Посетители" />
-            <End Role="ТаблицаСвязи1" EntitySet="ТаблицаСвязи1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Сотрудник__id_фе__29572725" Association="Self.FK__Сотрудник__id_фе__29572725">
+          <AssociationSet Name="FK__Сотрудник__id_фе__571DF1D5" Association="Self.FK__Сотрудник__id_фе__571DF1D5">
             <End Role="Фестиваль" EntitySet="Фестиваль" />
             <End Role="Сотрудники" EntitySet="Сотрудники" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ТаблицаСв__id_сц__47DBAE45" Association="Self.FK__ТаблицаСв__id_сц__47DBAE45">
-            <End Role="Сцены" EntitySet="Сцены" />
-            <End Role="ТаблицаСвязи3" EntitySet="ТаблицаСвязи3" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -798,6 +882,51 @@
                 <ScalarProperty Name="id_исполнителя" ColumnName="id_исполнителя" />
                 <ScalarProperty Name="время_начала" ColumnName="время_начала" />
                 <ScalarProperty Name="время_окончания" ColumnName="время_окончания" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ВыступленияИсполнителя">
+            <EntityTypeMapping TypeName="MusFestivalModel.ВыступленияИсполнителя">
+              <MappingFragment StoreEntitySet="ВыступленияИсполнителя">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_исполнителя" ColumnName="id_исполнителя" />
+                <ScalarProperty Name="id_песни" ColumnName="id_песни" />
+                <ScalarProperty Name="id_выступления" ColumnName="id_выступления" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ВыступленияНаСцене">
+            <EntityTypeMapping TypeName="MusFestivalModel.ВыступленияНаСцене">
+              <MappingFragment StoreEntitySet="ВыступленияНаСцене">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_сцены" ColumnName="id_сцены" />
+                <ScalarProperty Name="id_выступления" ColumnName="id_выступления" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Должность">
+            <EntityTypeMapping TypeName="MusFestivalModel.Должность">
+              <MappingFragment StoreEntitySet="Должность">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="должность1" ColumnName="должность" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Жанр">
+            <EntityTypeMapping TypeName="MusFestivalModel.Жанр">
+              <MappingFragment StoreEntitySet="Жанр">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="жанр1" ColumnName="жанр" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ЗаказБилета">
+            <EntityTypeMapping TypeName="MusFestivalModel.ЗаказБилета">
+              <MappingFragment StoreEntitySet="ЗаказБилета">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_билета" ColumnName="id_билета" />
+                <ScalarProperty Name="id_посетителя" ColumnName="id_посетителя" />
+                <ScalarProperty Name="id_заказа" ColumnName="id_заказа" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -829,6 +958,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="НазваниеМест">
+            <EntityTypeMapping TypeName="MusFestivalModel.НазваниеМест">
+              <MappingFragment StoreEntitySet="НазваниеМест">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="название_места" ColumnName="название_места" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Песни">
             <EntityTypeMapping TypeName="MusFestivalModel.Песни">
               <MappingFragment StoreEntitySet="Песни">
@@ -849,13 +986,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Роли">
+            <EntityTypeMapping TypeName="MusFestivalModel.Роли">
+              <MappingFragment StoreEntitySet="Роли">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="логин" ColumnName="логин" />
+                <ScalarProperty Name="пароль" ColumnName="пароль" />
+                <ScalarProperty Name="роль" ColumnName="роль" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Сотрудники">
             <EntityTypeMapping TypeName="MusFestivalModel.Сотрудники">
               <MappingFragment StoreEntitySet="Сотрудники">
-                <ScalarProperty Name="id_сотрудника" ColumnName="id_сотрудника" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_фестиваля" ColumnName="id_фестиваля" />
                 <ScalarProperty Name="имя" ColumnName="имя" />
-                <ScalarProperty Name="роль" ColumnName="роль" />
+                <ScalarProperty Name="должность" ColumnName="должность" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -868,32 +1015,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ТаблицаСвязи1">
-            <EntityTypeMapping TypeName="MusFestivalModel.ТаблицаСвязи1">
-              <MappingFragment StoreEntitySet="ТаблицаСвязи1">
+          <EntitySetMapping Name="ТипБилета">
+            <EntityTypeMapping TypeName="MusFestivalModel.ТипБилета">
+              <MappingFragment StoreEntitySet="ТипБилета">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="id_билета" ColumnName="id_билета" />
-                <ScalarProperty Name="id_заказа" ColumnName="id_заказа" />
-                <ScalarProperty Name="id_посетителя" ColumnName="id_посетителя" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ТаблицаСвязи2">
-            <EntityTypeMapping TypeName="MusFestivalModel.ТаблицаСвязи2">
-              <MappingFragment StoreEntitySet="ТаблицаСвязи2">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="id_исполнителя" ColumnName="id_исполнителя" />
-                <ScalarProperty Name="id_песни" ColumnName="id_песни" />
-                <ScalarProperty Name="id_выступления" ColumnName="id_выступления" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ТаблицаСвязи3">
-            <EntityTypeMapping TypeName="MusFestivalModel.ТаблицаСвязи3">
-              <MappingFragment StoreEntitySet="ТаблицаСвязи3">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="id_сцены" ColumnName="id_сцены" />
-                <ScalarProperty Name="id_выступления" ColumnName="id_выступления" />
+                <ScalarProperty Name="тип" ColumnName="тип" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
