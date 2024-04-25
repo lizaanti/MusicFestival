@@ -26,25 +26,6 @@ namespace MusicFestival
             
         }
 
-        private void logBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if(string.IsNullOrEmpty(LoginTB.Text) || string.IsNullOrEmpty(PassTB.Password))
-            {
-                MessageBox.Show("Введите логин или пароль!");
-                return;
-            }
-
-            using (var db = new MusFestivalEntities())
-            {
-                var role = db.Роли
-                    .AsNoTracking()
-                    .FirstOrDefault(r => r.логин == LoginTB.Text && r.пароль == PassTB.Password);
-                if(role == null)
-                {
-                    MessageBox.Show("Пользователь с такими данными не найден!");
-                    return;
-                }
-            }
-        }
+        
     }
 }
