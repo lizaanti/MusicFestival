@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,7 +25,7 @@ namespace MusicFestival
         public PlacesPage()
         {
             InitializeComponent();
-            DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
+           //DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -44,6 +46,14 @@ namespace MusicFestival
         private void DGridFestival_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Page_IsVisibaleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+            if(Visibility == Visibility.Visible)
+            {
+                MusFestivalEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
+            }
         }
     }
 }

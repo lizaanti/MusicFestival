@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MusicFestival"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PlacesPage">
+      Title="PlacesPage" IsVisibleChanged="Page_IsVisibaleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,13 +20,13 @@
                 <DataGridTemplateColumn Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" Background="#FFB5739D"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Background="#FFB5739D"></Button>
-        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Click" Background="#FFB5739D"></Button>
+        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Background="#FFB5739D" Width="159"></Button>
+        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnDelete" Click="BtnDelete_Click" Background="#FFB5739D" Margin="639,0,0,0" Width="161"></Button>
     </Grid>
 </Page>

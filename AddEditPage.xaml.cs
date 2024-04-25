@@ -32,6 +32,34 @@ namespace MusicFestival
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
+
+            if (string.IsNullOrWhiteSpace(_currentPlace.название))
+                errors.AppendLine("Укажите название места проведения");
+            if (string.IsNullOrWhiteSpace(_currentPlace.название))
+                errors.AppendLine("Укажите локацию места проведения");
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+            if(_currentPlace.id_места == 0)
+            {
+                MusFestivalEntities.GetContext().Место.Add(_currentPlace);
+            }
+
+            try
+            {
+                MusFestivalEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация успешно сохранена!");
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
 
         }
     }

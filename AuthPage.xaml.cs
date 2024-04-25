@@ -20,6 +20,7 @@ namespace MusicFestival
     /// </summary>
     public partial class AuthPage : Page
     {
+        
         public AuthPage()
         {
             InitializeComponent();
@@ -45,10 +46,15 @@ namespace MusicFestival
                     .FirstOrDefault(r => r.логин == login && r.пароль == password);
                 if (role == null)
                 {
-                    MessageBox.Show("Пользователь с такими данными не найден!");
+                    //MessageBox.Show("Пользователь с такими данными не найден!");
                     return false;
                 }
-                MessageBox.Show("Пользователь успешно найден!" + role);
+                //MessageBox.Show("Пользователь успешно найден!" + role.роль);
+
+                if(role.роль == "Администратор")
+                {
+
+                }
                 LoginTB.Clear();
                 PassTB.Clear();
 
