@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -22,20 +23,50 @@ namespace MusicFestival
     /// </summary>
     public partial class PlacesPage : Page
     {
+        public static object name;
+        public static object loc;
         public PlacesPage()
         {
             InitializeComponent();
-           //DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
+            name = App.Current.Resources["name"];
+            loc = App.Current.Resources["loc"];
+            //DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        private void bindDataGrid()
+        {
+            SqlConnection con = new SqlConnection();
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "select *from[Место]";
+            cmd.Connection = con;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("Место");
+            da.Fill(dt);
 
+            
+            con.Close();
+        }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            SqlConnection con = new SqlConnection();
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "insert into[Место](название)values(@nm)";
+            cmd.CommandText = "insert into[Место](локация)values(@lk)";
+            cmd.Parameters.AddWithValue("@nm", name);
+            cmd.Parameters.AddWithValue("@lk", loc);
+            cmd.Connection = con;
+            int a = cmd.ExecuteNonQuery();
+            if (a == 1)
+            {
+                MessageBox.Show("Информация успешно добавлена!");
+                bindDataGrid();
+            }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -55,5 +86,7 @@ namespace MusicFestival
                 DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
             }
         }
+
+        
     }
 }

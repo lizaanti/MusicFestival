@@ -25,7 +25,11 @@ namespace MusicFestival
         {
             InitializeComponent();
             DataContext = _currentPlace;
-            ComboPlaces.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
+            App.Current.Resources["name"] = NamePlaces.Text;
+            App.Current.Resources["loc"] = LocPlaces.Text;
+            NavigationService.GetNavigationService(this).Navigate(new Uri("PlacesPage.xaml", UriKind.RelativeOrAbsolute));
+
+            
         }
 
         
