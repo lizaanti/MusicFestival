@@ -8,21 +8,29 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddEditPage">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid Background="#FFFFA2DD">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text = "Название места проведения" Grid.Row="1"></TextBlock>
-        <TextBlock Text = "Локацию места проведения" Grid.Row="2"></TextBlock>
-        <TextBox x:Name="NamePlaces" Grid.Row = "1" Grid.Column="1" ></TextBox>
-        <TextBox x:Name="LocPlaces" Grid.Row="1" Width="600" HorizontalAlignment="Center" Grid.Column="1" Margin="0,110,0,6" Grid.RowSpan="2" RenderTransformOrigin="0.154,0.625"></TextBox>
-        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="3" Name="BtnSave" Click="BtnSave_Click"></Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="216"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text= "Название места проведения" Grid.Row="0" Grid.Column="0" Margin="10,50,0,0" FontSize="15"/>
+        <ComboBox x:Name="CmbNamePlace" SelectedItem ="{Binding название}" HorizontalAlignment="Left" Margin="98,50,0,0" Text="" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1">
+            <ComboBoxItem Content="База"/>
+            <ComboBoxItem Content="Ромашка"/>
+            <ComboBoxItem Content="Жара"/>
+            <ComboBoxItem Content="Павлин"/>
+            <ComboBoxItem Content="Луч"/>
+            <ComboBoxItem Content="Час-пик"/>
+        </ComboBox>
+
+        <TextBlock Text= "Локация места проведения" Grid.Row="1" Grid.Column="0" Margin="10,50,0,0" FontSize="15"/>
+        <TextBox x:Name="LocPlaceTbx" Text="{Binding локация}" HorizontalAlignment="Left" Margin="98,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="BtnCancel" Content="Отмена" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Height="41" Width="104" Background="#FFB5739D" FontSize="15" Grid.Column="1" Grid.Row="2" Click="BtnCancel_Click"/>
+        <Button x:Name="BtnSave" Content="Сохранить" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="41" Width="104" FontSize="15" Background="#FFB5739D" Click="BtnSave_Click" Grid.Column="1" Grid.Row="2"/>
     </Grid>
 </Page>

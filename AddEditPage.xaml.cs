@@ -21,50 +21,59 @@ namespace MusicFestival
     public partial class AddEditPage : Page
     {
         private Место _currentPlace = new Место();
+        
         public AddEditPage()
         {
             InitializeComponent();
             DataContext = _currentPlace;
-            App.Current.Resources["name"] = NamePlaces.Text;
-            App.Current.Resources["loc"] = LocPlaces.Text;
-            NavigationService.GetNavigationService(this).Navigate(new Uri("PlacesPage.xaml", UriKind.RelativeOrAbsolute));
-
-            
         }
-
-        
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(_currentPlace.название))
-                errors.AppendLine("Укажите название места проведения");
-            if (string.IsNullOrWhiteSpace(_currentPlace.название))
-                errors.AppendLine("Укажите локацию места проведения");
+            if (string.IsNullOrWhiteSpace(_currentPlace.локация))
+                errors.AppendLine("Укажите локацию места проведения!");
+            if ((_currentPlace.название == null) ||(CmbNamePlace.Text == ""))
+                errors.AppendLine("Выберите название места проведения!");
+            
+            else
+                _currentPlace.название = CmbNamePlace.Text;
 
-            if (errors.Length > 0)
+            if(errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
 
-            if(_currentPlace.id_места == 0)
-            {
+            if (_currentPlace.id_места == 0)
                 MusFestivalEntities.GetContext().Место.Add(_currentPlace);
-            }
 
             try
             {
                 MusFestivalEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация успешно сохранена!");
-                return;
+                MessageBox.Show("Данные успешно сохранены!");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
 
+        }
+
+        private void Page_IsVisibileChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(Visibility == Visibility.Visible)
+            {
+                MusFestivalEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                //.ItemSources = MusFestivalEntities.GetContext().Место.ToList();
+            }
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("PlacesPage.xaml", UriKind.Relative));
         }
     }
 }
