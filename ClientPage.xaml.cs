@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,42 +16,25 @@ using System.Windows.Shapes;
 namespace MusicFestival
 {
     /// <summary>
-    /// Логика взаимодействия для PlacesPage.xaml
+    /// Логика взаимодействия для ClientPage.xaml
     /// </summary>
-    public partial class PlacesPage : Page
+    public partial class ClientPage : Page
     {
-        public PlacesPage()
+        public ClientPage()
         {
             InitializeComponent();
-            DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
+            DGridClient.ItemsSource = MusFestivalEntities.GetContext().Посетители.ToList();
         }
 
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("AddEditPage.xaml", UriKind.Relative));
+            nav.Navigate(new Uri("EditClientPage.xaml", UriKind.Relative));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        private void DGridFestival_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
-
-        private void Page_IsVisibaleChanged(object sender, DependencyPropertyChangedEventArgs e) 
-        {
-
-        }
-
-        
     }
 }

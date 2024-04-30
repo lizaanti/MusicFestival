@@ -70,10 +70,16 @@ namespace MusicFestival
             }
         }
 
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("PlacesPage.xaml", UriKind.Relative));
+        }
+
+        private void BtnCanel_Click(object sender, RoutedEventArgs e)
+        {
+            CmbNamePlace.Text = "";
+            LocPlaceTbx.Text = "";
         }
     }
 }

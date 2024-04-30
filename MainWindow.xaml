@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Музыкальный фестиваль" Height="450" Width="800">
     <Grid Background="#FFFFA2DD">
-        <Frame x:Name="MainFrame" Grid.Column ="1" Source="PlacesPage.xaml" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Grid.Column ="1" Source="FestivalPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
