@@ -16,32 +16,32 @@ using System.Windows.Shapes;
 namespace MusicFestival
 {
     /// <summary>
-    /// Логика взаимодействия для EditTicketPage.xaml
+    /// Логика взаимодействия для EditGenrePage.xaml
     /// </summary>
-    public partial class EditTicketPage : Page
+    public partial class EditGenrePage : Page
     {
-        private Билеты _currentTicket = new Билеты();
+        private Жанр _currentGenre = new Жанр();
 
-        public EditTicketPage()
+        public EditGenrePage()
         {
             InitializeComponent();
-            DataContext = _currentTicket;
+            DataContext = _currentGenre;
+        }
+
+        private void BtnCanel_Click(object sender, RoutedEventArgs e)
+        {
+            CmbGenre.Text = "";
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            
-            if ((CmbTypeTicket.Text == ""))
-                errors.AppendLine("Выберите тип билета!");
-            if ((CmbPriceTicket.Text == ""))
-                errors.AppendLine("Выберите цену билета!");
-            else
-            {
-                _currentTicket.тип_билета = CmbTypeTicket.Text;
-                _currentTicket.цена = Convert.ToInt32(CmbPriceTicket.Text);
 
-            }
+            if ((_currentGenre.жанр == null) || (CmbGenre.Text == ""))
+                errors.AppendLine("Укажите жанр!");
+
+            else
+                _currentGenre.жанр = CmbGenre.Text;
 
             if (errors.Length > 0)
             {
@@ -49,8 +49,8 @@ namespace MusicFestival
                 return;
             }
 
-            if (_currentTicket.id_билета == 0)
-                MusFestivalEntities.GetContext().Билеты.Add(_currentTicket);
+            if (_currentGenre.id == 0)
+                MusFestivalEntities.GetContext().Жанр.Add(_currentGenre);
 
             try
             {
@@ -66,13 +66,7 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("TicketPage.xaml", UriKind.Relative));
-        }
-
-        private void BtnCanel_Click(object sender, RoutedEventArgs e)
-        {
-            CmbTypeTicket.Text = "";
-            CmbPriceTicket.Text = "";
+            nav.Navigate(new Uri("GenrePage.xaml", UriKind.Relative));
         }
     }
 }

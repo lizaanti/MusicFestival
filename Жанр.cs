@@ -15,6 +15,6 @@ namespace MusicFestival
     public partial class Жанр
     {
         public int id { get; set; }
-        public string жанр1 { get; set; }
+        public string жанр { get; set; }
     }
 }

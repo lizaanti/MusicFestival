@@ -101,8 +101,20 @@
     <Compile Include="EditFestivalPage.xaml.cs">
       <DependentUpon>EditFestivalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditGenrePage.xaml.cs">
+      <DependentUpon>EditGenrePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditJobTitlePage.xaml.cs">
+      <DependentUpon>EditJobTitlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditNamePlacePage.xaml.cs">
+      <DependentUpon>EditNamePlacePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditOrdersPage.xaml.cs">
       <DependentUpon>EditOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditRolePage.xaml.cs">
+      <DependentUpon>EditRolePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditScenePage.xaml.cs">
       <DependentUpon>EditScenePage.xaml</DependentUpon>
@@ -119,14 +131,29 @@
     <Compile Include="EditTicketPage.xaml.cs">
       <DependentUpon>EditTicketPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditTypeTicketPage.xaml.cs">
+      <DependentUpon>EditTypeTicketPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FestivalPage.xaml.cs">
       <DependentUpon>FestivalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GenrePage.xaml.cs">
+      <DependentUpon>GenrePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobTitlePage.xaml.cs">
+      <DependentUpon>JobTitlePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NamePlacePage.xaml.cs">
+      <DependentUpon>NamePlacePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrdersPage.xaml.cs">
       <DependentUpon>OrdersPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PlacesPage.xaml.cs">
       <DependentUpon>PlacesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RolePage.xaml.cs">
+      <DependentUpon>RolePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ScenePage.xaml.cs">
       <DependentUpon>ScenePage.xaml</DependentUpon>
@@ -142,6 +169,9 @@
     </Compile>
     <Compile Include="TicketPage.xaml.cs">
       <DependentUpon>TicketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TypeTicketPage.xaml.cs">
+      <DependentUpon>TypeTicketPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Билеты.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
@@ -225,7 +255,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditGenrePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditJobTitlePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditNamePlacePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditRolePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,7 +295,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditTypeTicketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FestivalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GenrePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JobTitlePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,11 +323,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NamePlacePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlacesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RolePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,6 +356,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TicketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TypeTicketPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
