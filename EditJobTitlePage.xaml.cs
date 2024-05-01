@@ -32,11 +32,11 @@ namespace MusicFestival
         {
             StringBuilder errors = new StringBuilder();
 
-            if ((_currentJT.должность1 == null) || (CmbJT.Text == ""))
+            if ((_currentJT.сотрдолжность == null) || (CmbJT.Text == ""))
                 errors.AppendLine("Укажите должность!");
 
             else
-                _currentJT.должность1 = CmbJT.Text;
+                _currentJT.сотрдолжность = CmbJT.Text;
 
             if (errors.Length > 0)
             {

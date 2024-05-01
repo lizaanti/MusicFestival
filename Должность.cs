@@ -15,6 +15,6 @@ namespace MusicFestival
     public partial class Должность
     {
         public int id { get; set; }
-        public string должность1 { get; set; }
+        public string сотрдолжность { get; set; }
     }
 }

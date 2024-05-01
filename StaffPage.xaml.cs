@@ -36,5 +36,11 @@ namespace MusicFestival
         {
 
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+        }
     }
 }

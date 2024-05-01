@@ -27,8 +27,7 @@ namespace MusicFestival
                 _context = new MusFestivalEntities();
             return _context;
         }
-
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

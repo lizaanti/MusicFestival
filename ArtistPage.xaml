@@ -13,7 +13,7 @@
             <RowDefinition Height="377*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DGridArtist" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFFA2DD" Foreground="#FFB5739D">
+        <DataGrid x:Name="DGridArtist" AutoGenerateColumns="False" IsReadOnly="True" Background="#FFFFA2DD" Foreground="#FFB5739D" RenderTransformOrigin="0.458,0.515">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Исполнитель" Binding="{Binding имя}" Width="*" Foreground="#FFB5739D"></DataGridTextColumn>
                 <DataGridTextColumn Header="Жанр" Binding="{Binding жанр}" Width="400" Foreground="#FFB5739D"></DataGridTextColumn>
@@ -28,5 +28,10 @@
         </DataGrid>
         <Button Content="Добавить" HorizontalAlignment="Left" Name="BtnAdd" Background="#FFB5739D" Width="159" Margin="165,0,0,0" Grid.Row="1" Click="BtnAdd_Click"/>
         <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnDelete" Background="#FFB5739D" Margin="474,0,0,0" Width="161" Height="50" VerticalAlignment="Top" Click="BtnDelete_Click"></Button>
+        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Height="50" Width="73" Grid.Row="1" Click="BtnBack_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/arrow_back.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

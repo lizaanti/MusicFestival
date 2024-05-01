@@ -37,11 +37,11 @@ namespace MusicFestival
         {
             StringBuilder errors = new StringBuilder();
 
-            if ((_currentGenre.жанр == null) || (CmbGenre.Text == ""))
+            if ((_currentGenre.музжанр == null) || (CmbGenre.Text == ""))
                 errors.AppendLine("Укажите жанр!");
 
             else
-                _currentGenre.жанр = CmbGenre.Text;
+                _currentGenre.музжанр = CmbGenre.Text;
 
             if (errors.Length > 0)
             {

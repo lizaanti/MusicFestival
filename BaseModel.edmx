@@ -44,14 +44,14 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="должность" Type="varchar" MaxLength="50" />
+          <Property Name="сотрдолжность" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Жанр">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="жанр" Type="varchar" MaxLength="50" />
+          <Property Name="музжанр" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ЗаказБилета">
           <Key>
@@ -470,14 +470,14 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="должность1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="сотрдолжность" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Жанр">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="жанр1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="музжанр" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ЗаказБилета">
           <Key>
@@ -908,7 +908,7 @@
             <EntityTypeMapping TypeName="MusFestivalModel.Должность">
               <MappingFragment StoreEntitySet="Должность">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="должность1" ColumnName="должность" />
+                <ScalarProperty Name="сотрдолжность" ColumnName="сотрдолжность" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -916,7 +916,7 @@
             <EntityTypeMapping TypeName="MusFestivalModel.Жанр">
               <MappingFragment StoreEntitySet="Жанр">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="жанр1" ColumnName="жанр" />
+                <ScalarProperty Name="музжанр" ColumnName="музжанр" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
