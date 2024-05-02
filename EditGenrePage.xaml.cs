@@ -30,18 +30,18 @@ namespace MusicFestival
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)
         {
-            CmbGenre.Text = "";
+            TbxGenre.Text = "";
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
 
-            if ((_currentGenre.музжанр == null) || (CmbGenre.Text == ""))
+            if ((_currentGenre.музжанр == null))
                 errors.AppendLine("Укажите жанр!");
 
             else
-                _currentGenre.музжанр = CmbGenre.Text;
+                _currentGenre.музжанр = TbxGenre.Text;
 
             if (errors.Length > 0)
             {

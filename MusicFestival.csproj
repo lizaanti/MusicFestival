@@ -444,6 +444,10 @@
     <Resource Include="arrow_back.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="music_note.png" />
+    <Resource Include="festival.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="BaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BaseModel.edmx</DependentUpon>
@@ -454,8 +458,6 @@
       <DependentUpon>BaseModel.edmx</DependentUpon>
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="music_note.png" />
-    <Resource Include="festival.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

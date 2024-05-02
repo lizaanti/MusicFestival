@@ -20,7 +20,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text= "ФИО посетителя" Grid.Row="0" Grid.Column="0" Margin="45,61,0,11" FontSize="15"/>
-        <TextBox x:Name="TbxFIO" Text ="{Binding фио}" HorizontalAlignment="Left" Margin="98,63,0,0" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1"/>
+        <TextBox x:Name="TbxFIO" Text ="{Binding ФИО}" HorizontalAlignment="Left" Margin="98,63,0,0" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1"/>
 
         <TextBlock Text= "Почта" Grid.Row="1" Grid.Column="0" Margin="45,50,0,0" FontSize="15"/>
         <TextBox x:Name="TbxMail" Text="{Binding почта}" HorizontalAlignment="Left" Margin="98,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1" Grid.Row="1"/>

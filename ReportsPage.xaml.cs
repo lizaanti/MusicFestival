@@ -37,10 +37,10 @@ namespace MusicFestival
             nav.Navigate(new Uri("ArtistReportPage.xaml", UriKind.Relative));
         }
 
-        private void BtnStaffReport_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StaffReportPage.xaml", UriKind.Relative));
-        }
+        //private void BtnStaffReport_Click(object sender, RoutedEventArgs e)
+        //{
+        //    NavigationService nav = NavigationService.GetNavigationService(this);
+        //    nav.Navigate(new Uri("StaffReportPage.xaml", UriKind.Relative));
+        //}
     }
 }

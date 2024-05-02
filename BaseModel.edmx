@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище MusFestivalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище MusFestivalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Билеты">
           <Key>
             <PropertyRef Name="id_билета" />
@@ -463,7 +463,8 @@
             <End Role="Фестиваль" EntitySet="Фестиваль" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MusFestivalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -646,6 +647,25 @@
           <Property Name="дата_окончания" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Место" Relationship="Self.FK__Фестиваль__id_ме__267ABA7A" FromRole="Фестиваль" ToRole="Место" />
           <NavigationProperty Name="Сотрудники" Relationship="Self.FK__Сотрудник__id_фе__571DF1D5" FromRole="Фестиваль" ToRole="Сотрудники" />
+        </EntityType>
+        <EntityType Name="УчетИспонителей">
+          <Key>
+            <PropertyRef Name="Сцена" />
+          </Key>
+          <Property Name="Исполнитель" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Музыкальный_Жанр" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Время_Начала" Type="Time" Precision="7" />
+          <Property Name="Время_Окончания" Type="Time" Precision="7" />
+          <Property Name="Сцена" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="УчетПосетителей">
+          <Key>
+            <PropertyRef Name="Билет" />
+          </Key>
+          <Property Name="Посетитель" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Дата_Брони" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Билет" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Цена" Type="Int32" />
         </EntityType>
         <Association Name="FK__ЗаказБиле__id_би__6A30C649">
           <End Role="Билеты" Type="Self.Билеты" Multiplicity="1" />
@@ -846,6 +866,8 @@
           <EntitySet Name="Сцены" EntityType="Self.Сцены" />
           <EntitySet Name="ТипБилета" EntityType="Self.ТипБилета" />
           <EntitySet Name="Фестиваль" EntityType="Self.Фестиваль" />
+          <EntitySet Name="УчетИспонителей" EntityType="Self.УчетИспонителей" />
+          <EntitySet Name="УчетПосетителей" EntityType="Self.УчетПосетителей" />
           <AssociationSet Name="FK__ЗаказБиле__id_би__6A30C649" Association="Self.FK__ЗаказБиле__id_би__6A30C649">
             <End Role="Билеты" EntitySet="Билеты" />
             <End Role="ЗаказБилета" EntitySet="ЗаказБилета" />
@@ -906,28 +928,7 @@
             <End Role="Фестиваль" EntitySet="Фестиваль" />
             <End Role="Сотрудники" EntitySet="Сотрудники" />
           </AssociationSet>
-          <EntitySet Name="УчетПосетителей" EntityType="MusFestivalModel.УчетПосетителей" />
-          <EntitySet Name="УчетИспонителей" EntityType="MusFestivalModel.УчетИспонителей" />
         </EntityContainer>
-        <EntityType Name="УчетПосетителей">
-          <Key>
-            <PropertyRef Name="Билет" />
-          </Key>
-          <Property Name="Посетитель" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Дата_Брони" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Билет" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Цена" Type="Int32" />
-        </EntityType>
-        <EntityType Name="УчетИспонителей">
-          <Key>
-            <PropertyRef Name="Сцена" />
-          </Key>
-          <Property Name="Исполнитель" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Музыкальный_Жанр" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Время_Начала" Type="Time" Precision="7" />
-          <Property Name="Время_Окончания" Type="Time" Precision="7" />
-          <Property Name="Сцена" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1102,24 +1103,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="УчетПосетителей">
-            <EntityTypeMapping TypeName="MusFestivalModel.УчетПосетителей">
-              <MappingFragment StoreEntitySet="УчетПосетителей">
-                <ScalarProperty Name="Цена" ColumnName="Цена" />
-                <ScalarProperty Name="Билет" ColumnName="Билет" />
-                <ScalarProperty Name="Дата_Брони" ColumnName="Дата_Брони" />
-                <ScalarProperty Name="Посетитель" ColumnName="Посетитель" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="УчетИспонителей">
             <EntityTypeMapping TypeName="MusFestivalModel.УчетИспонителей">
               <MappingFragment StoreEntitySet="УчетИспонителей">
-                <ScalarProperty Name="Сцена" ColumnName="Сцена" />
-                <ScalarProperty Name="Время_Окончания" ColumnName="Время_Окончания" />
-                <ScalarProperty Name="Время_Начала" ColumnName="Время_Начала" />
-                <ScalarProperty Name="Музыкальный_Жанр" ColumnName="Музыкальный_Жанр" />
                 <ScalarProperty Name="Исполнитель" ColumnName="Исполнитель" />
+                <ScalarProperty Name="Музыкальный_Жанр" ColumnName="Музыкальный_Жанр" />
+                <ScalarProperty Name="Время_Начала" ColumnName="Время_Начала" />
+                <ScalarProperty Name="Время_Окончания" ColumnName="Время_Окончания" />
+                <ScalarProperty Name="Сцена" ColumnName="Сцена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="УчетПосетителей">
+            <EntityTypeMapping TypeName="MusFestivalModel.УчетПосетителей">
+              <MappingFragment StoreEntitySet="УчетПосетителей">
+                <ScalarProperty Name="Посетитель" ColumnName="Посетитель" />
+                <ScalarProperty Name="Дата_Брони" ColumnName="Дата_Брони" />
+                <ScalarProperty Name="Билет" ColumnName="Билет" />
+                <ScalarProperty Name="Цена" ColumnName="Цена" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

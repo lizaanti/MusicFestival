@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace MusicFestival
         {
             StringBuilder errors = new StringBuilder();
 
-            if (_currentScene.id_выступления == 0)
+            if (_currentScene.id_выступления == null)
                 errors.AppendLine("Введите номер выступления!");
             if ((_currentScene.вместимость_сцены == null))
                 errors.AppendLine("Введите вместимость сцены!");
@@ -43,17 +44,16 @@ namespace MusicFestival
                 return;
             }
 
-            if (_currentScene.id_сцены == 0)
-                MusFestivalEntities.GetContext().Сцены.Add(_currentScene);
+            MusFestivalEntities.GetContext().Сцены.Add(_currentScene);
 
             try
             {
                 MusFestivalEntities.GetContext().SaveChanges();
                 MessageBox.Show("Данные успешно сохранены!");
             }
-            catch (Exception ex)
+            catch (DbUpdateException ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.GetBaseException().Message.ToString());
             }
 
         }

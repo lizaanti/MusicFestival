@@ -38,7 +38,8 @@ namespace MusicFestival
                 errors.AppendLine("Выберите жанр исполнителя!");
             else
             {
-                _currentArtist.имя = CmbGenre.Text;
+                _currentArtist.имя = TbxNameArtist.Text;
+                _currentArtist.жанр = CmbGenre.Text;
             }
             if (errors.Length > 0)
             {

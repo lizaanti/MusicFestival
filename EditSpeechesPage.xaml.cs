@@ -35,6 +35,7 @@ namespace MusicFestival
                 errors.AppendLine("Укажите время начала выступления!");
             if ((_currentSpeeches.время_окончания == null))
                 errors.AppendLine("Укажите время окончания выступления!");
+            
 
             if (errors.Length > 0)
             {
@@ -42,7 +43,7 @@ namespace MusicFestival
                 return;
             }
 
-            if ((_currentSpeeches.id_выступления == 0) && (_currentSpeeches.id_исполнителя == 0))
+            if ((_currentSpeeches.id_выступления == 0))
                 MusFestivalEntities.GetContext().Выступления.Add(_currentSpeeches);
 
             try

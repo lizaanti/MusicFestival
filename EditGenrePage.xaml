@@ -19,14 +19,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text= "Жанр" Grid.Row="0" Grid.Column="0" Margin="100,180,0,0" FontSize="15"/>
-        <ComboBox x:Name="CmbGenre" SelectedItem ="{Binding музжанр}" HorizontalAlignment="Left" Margin="99,180,0,0" Text="" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1">
-            <ComboBoxItem Content="Рок"/>
-            <ComboBoxItem Content="Метал"/>
-            <ComboBoxItem Content="Блюз"/>
-            <ComboBoxItem Content="Поп"/>
-            <ComboBoxItem Content="Джаз"/>
-            <ComboBoxItem Content="Хип-хоп"/>
-        </ComboBox>
+        <TextBox x:Name="TbxGenre" HorizontalAlignment="Left" Margin="99,180,0,0" Text="{Binding музжанр}" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1"/>
         <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="62" FontSize="15" Click="BtnBack_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0,0,0,0" Margin="10,5,0,0" Grid.Row="2">
             <Button.Background>
                 <ImageBrush ImageSource="/arrow_back.png" Stretch="None"/>

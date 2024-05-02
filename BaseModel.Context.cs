@@ -25,8 +25,8 @@ namespace MusicFestival
         {
             if(_context == null )
                 _context = new MusFestivalEntities();
-            return _context;    
-        }
+            return _context;
+        } 
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace MusicFestival
         public virtual DbSet<Сцены> Сцены { get; set; }
         public virtual DbSet<ТипБилета> ТипБилета { get; set; }
         public virtual DbSet<Фестиваль> Фестиваль { get; set; }
-        public virtual DbSet<УчетПосетителей> УчетПосетителей { get; set; }
         public virtual DbSet<УчетИспонителей> УчетИспонителей { get; set; }
+        public virtual DbSet<УчетПосетителей> УчетПосетителей { get; set; }
     }
 }

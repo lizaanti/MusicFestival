@@ -52,13 +52,11 @@ namespace MusicFestival
                 else
                 {
                     NavigationService nav = NavigationService.GetNavigationService(this);
-                    nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+                    StartPage newPage = new StartPage();
+                    newPage.role = role.роль;
+                    nav.Navigate(newPage);
                 }
 
-                if(role.роль == "Администратор")
-                {
-
-                }
                 LoginTB.Clear();
                 PassTB.Clear();
 

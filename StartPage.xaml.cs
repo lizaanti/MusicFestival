@@ -20,6 +20,7 @@ namespace MusicFestival
     /// </summary>
     public partial class StartPage : Page
     {
+        public string role;
         public StartPage()
         {
             InitializeComponent();
@@ -33,90 +34,105 @@ namespace MusicFestival
 
         private void BtnArtist_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("ArtistPage.xaml", UriKind.Relative));
         }
 
         private void BtnSongs_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("SongsPage.xaml", UriKind.Relative));
         }
 
         private void BtnSpeeches_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("SpeechesPage.xaml", UriKind.Relative));
         }
 
         private void BtnGenre_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("GenrePage.xaml", UriKind.Relative));
         }
 
         private void BtnOrders_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("OrdersPage.xaml", UriKind.Relative));
         }
 
         private void BtnTicket_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("TicketPage.xaml", UriKind.Relative));
         }
 
         private void BtnClient_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("ClientPage.xaml", UriKind.Relative));
         }
 
         private void BtnStaff_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("StaffPage.xaml", UriKind.Relative));
         }
 
         private void BtnJobTitle_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("JobTitlePage.xaml", UriKind.Relative));
         }
 
         private void BtnPlace_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("PlacesPage.xaml", UriKind.Relative));
         }
 
         private void BtnNamePlace_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("NamePlacePage.xaml", UriKind.Relative));
         }
 
         private void BtnScene_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("ScenePage.xaml", UriKind.Relative));
         }
 
         private void BtnRole_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("RolePage.xaml", UriKind.Relative));
         }
 
         private void BtnTicketType_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("TypeTicketPage.xaml", UriKind.Relative));
         }
 
         private void BtnReports_Click(object sender, RoutedEventArgs e)
         {
+            
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("ReportsPage.xaml", UriKind.Relative));
         }
