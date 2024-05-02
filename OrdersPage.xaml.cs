@@ -24,7 +24,6 @@ namespace MusicFestival
         {
             InitializeComponent();
             DGridOrders.ItemsSource = MusFestivalEntities.GetContext().Заказы.ToList();
-            DGridOrders.ItemsSource = MusFestivalEntities.GetContext().Посетители.ToList();
 
         }
 
@@ -38,6 +37,26 @@ namespace MusicFestival
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var OrderRemov = DGridOrders.SelectedItems.Cast<Заказы>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {OrderRemov.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MusFestivalEntities.GetContext().Заказы.RemoveRange(OrderRemov);
+                    MusFestivalEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToLower());
+                }
+            }
         }
     }
 }

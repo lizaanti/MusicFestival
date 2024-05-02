@@ -30,7 +30,7 @@
             <ComboBoxItem Content="Джаз"/>
             <ComboBoxItem Content="Хип-хоп"/>
         </ComboBox>
-        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="62" FontSize="15" Click="BtnBack_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0,0,0,0">
+        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="62" FontSize="15" Click="BtnBack_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0,0,0,0" Margin="10,5,0,0" Grid.Row="2">
             <Button.Background>
                 <ImageBrush ImageSource="/arrow_back.png" Stretch="None"/>
             </Button.Background>

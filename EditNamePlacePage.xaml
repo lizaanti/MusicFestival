@@ -19,15 +19,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text= "Название места" Grid.Row="0" Grid.Column="0" Margin="100,180,0,0" FontSize="15"/>
-        <ComboBox x:Name="CmbNmPlc" SelectedItem ="{Binding название_места}" HorizontalAlignment="Left" Margin="99,180,0,0" Text="" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1">
-            <ComboBoxItem Content="База"/>
-            <ComboBoxItem Content="Ромашка"/>
-            <ComboBoxItem Content="Жара"/>
-            <ComboBoxItem Content="Павлин"/>
-            <ComboBoxItem Content="Луч"/>
-            <ComboBoxItem Content="Час-пик"/>
-        </ComboBox>
-        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="62" FontSize="15" Click="BtnBack_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0,0,0,0" Margin="1,1,1,1">
+        <TextBox x:Name="TbxNmPlc" HorizontalAlignment="Left" Margin="99,171,0,0" Text="{Binding название_места}" VerticalAlignment="Top" Width="170" Height="28" Grid.Column="1"/>
+        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="62" FontSize="15" Click="BtnBack_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0,0,0,0" Margin="10,5,0,0" Grid.Row="2">
             <Button.Background>
                 <ImageBrush ImageSource="/arrow_back.png" Stretch="None"/>
             </Button.Background>

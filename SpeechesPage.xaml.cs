@@ -38,5 +38,25 @@ namespace MusicFestival
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
         }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var SpeechRemov = DGridSpeeches.SelectedItems.Cast<Выступления>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {SpeechRemov.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MusFestivalEntities.GetContext().Выступления.RemoveRange(SpeechRemov);
+                    MusFestivalEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToLower());
+                }
+            }
+        }
     }
 }

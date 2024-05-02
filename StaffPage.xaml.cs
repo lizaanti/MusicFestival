@@ -34,7 +34,22 @@ namespace MusicFestival
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var StaffRemov = DGridStaff.SelectedItems.Cast<Сотрудники>().ToList();
 
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {StaffRemov.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MusFestivalEntities.GetContext().Сотрудники.RemoveRange(StaffRemov);
+                    MusFestivalEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToLower());
+                }
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

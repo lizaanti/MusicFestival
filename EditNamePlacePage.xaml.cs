@@ -30,18 +30,18 @@ namespace MusicFestival
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)
         {
-            CmbNmPlc.Text = "";
+            TbxNmPlc.Text = "";
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
 
-            if ((_currentNPlace.название_места == null) || (CmbNmPlc.Text == ""))
+            if ((_currentNPlace.название_места == null))
                 errors.AppendLine("Укажите название!");
 
             else
-                _currentNPlace.название_места = CmbNmPlc.Text;
+                _currentNPlace.название_места = TbxNmPlc.Text;
 
             if (errors.Length > 0)
             {

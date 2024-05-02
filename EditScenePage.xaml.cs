@@ -32,7 +32,7 @@ namespace MusicFestival
         {
             StringBuilder errors = new StringBuilder();
 
-            if (_currentScene.id_выступления == null)
+            if (_currentScene.id_выступления == 0)
                 errors.AppendLine("Введите номер выступления!");
             if ((_currentScene.вместимость_сцены == null))
                 errors.AppendLine("Введите вместимость сцены!");

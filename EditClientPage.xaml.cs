@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -38,7 +39,7 @@ namespace MusicFestival
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(_currentClient.ФИО))
+            if ((_currentClient.ФИО) == null)
                 errors.AppendLine("Введите ФИО посетителя!");
             if (string.IsNullOrWhiteSpace(_currentClient.почта))
                 errors.AppendLine("Введите почту!");
@@ -65,7 +66,7 @@ namespace MusicFestival
             }
 
         }
-
+        
         private void BtnCanel_Click(object sender, RoutedEventArgs e)
         {
             TbxFIO.Text = "";

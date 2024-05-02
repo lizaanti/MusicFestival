@@ -46,10 +46,14 @@ namespace MusicFestival
                     .FirstOrDefault(r => r.логин == login && r.пароль == password);
                 if (role == null)
                 {
-                    //MessageBox.Show("Пользователь с такими данными не найден!");
+                    MessageBox.Show("Пользователь с такими данными не найден!");
                     return false;
                 }
-                //MessageBox.Show("Пользователь успешно найден!" + role.роль);
+                else
+                {
+                    NavigationService nav = NavigationService.GetNavigationService(this);
+                    nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+                }
 
                 if(role.роль == "Администратор")
                 {

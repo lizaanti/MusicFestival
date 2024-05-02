@@ -9,10 +9,10 @@
       Title="Авторизация">
 
     <Grid Background="#FFFFA2DD">
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="254,165,0,0" VerticalAlignment="Top"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="250,0,0,0" VerticalAlignment="Center"/>
-        <TextBox x:Name="LoginTB" HorizontalAlignment="Center" Margin="0,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
-        <PasswordBox x:Name="PassTB" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="138"/>
-        <Button x:Name="logBtn" Content="Войти" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" Height="26" Width="71" Background="#FFB5739D" Click="logBtn_Click"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="194,170,0,0" VerticalAlignment="Top" Height="43" Width="104" FontSize="20" FontFamily="Franklin Gothic Heavy"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="194,252,0,0" VerticalAlignment="Top" Height="48" Width="107" FontSize="20" FontFamily="Franklin Gothic Heavy"/>
+        <TextBox x:Name="LoginTB" HorizontalAlignment="Center" Margin="0,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184" Height="46"/>
+        <PasswordBox x:Name="PassTB" HorizontalAlignment="Center" VerticalAlignment="Top" Width="184" Height="46" Margin="0,254,0,0"/>
+        <Button x:Name="logBtn" Content="Войти" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Height="40" Width="144" Background="#FFB5739D" Click="logBtn_Click" FontSize="24" FontFamily="Franklin Gothic Heavy"/>
     </Grid>
 </Page>

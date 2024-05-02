@@ -114,5 +114,11 @@ namespace MusicFestival
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("TypeTicketPage.xaml", UriKind.Relative));
         }
+
+        private void BtnReports_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("ReportsPage.xaml", UriKind.Relative));
+        }
     }
 }

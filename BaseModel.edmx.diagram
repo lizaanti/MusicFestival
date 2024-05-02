@@ -38,6 +38,8 @@
         <AssociationConnector Association="MusFestivalModel.FK__Песни__id_исполн__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__Фестиваль__id_ме__267ABA7A" ManuallyRouted="false" />
         <AssociationConnector Association="MusFestivalModel.FK__Сотрудник__id_фе__571DF1D5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MusFestivalModel.УчетПосетителей" Width="1.5" PointX="5.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MusFestivalModel.УчетИспонителей" Width="1.5" PointX="7.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

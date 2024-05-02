@@ -9,21 +9,26 @@
       Title="StartPage">
 
     <Grid Background="#FFFFA2DD">
-        <Button x:Name="BtnFest" Content="Фестиваль" HorizontalAlignment="Left" Margin="70,91,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnFest_Click"/>
-        <Button x:Name="BtnJobTitle" Content="Должности" HorizontalAlignment="Left" Margin="652,196,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnJobTitle_Click"/>
-        <Button x:Name="BtnRole" Content="Роли" HorizontalAlignment="Left" Margin="510,296,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnRole_Click"/>
-        <Button x:Name="BtnOrders" Content="Заказы" HorizontalAlignment="Left" Margin="70,196,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnOrders_Click"/>
-        <Button x:Name="BtnGenre" Content="Жанр" HorizontalAlignment="Left" Margin="652,91,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnGenre_Click"/>
-        <Button x:Name="BtnSongs" Content="Песни" HorizontalAlignment="Center" Margin="0,91,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnSongs_Click"/>
-        <Button x:Name="BtnArtist" Content="Исполнители" HorizontalAlignment="Left" Margin="215,91,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnArtist_Click"/>
-        <Button x:Name="BtnTicketType" Content="Тип билетов" HorizontalAlignment="Left" Margin="652,296,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnTicketType_Click"/>
-        <Button x:Name="BtnStaff" Content="Сотрудники" HorizontalAlignment="Left" Margin="510,196,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnStaff_Click"/>
-        <Button x:Name="BtnTicket" Content="Билеты" HorizontalAlignment="Left" Margin="215,196,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnTicket_Click"/>
-        <Button x:Name="BtnSpeeches" Content="Выступления" HorizontalAlignment="Left" Margin="510,91,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" RenderTransformOrigin="2.613,5.863" Click="BtnSpeeches_Click"/>
-        <Button x:Name="BtnPlace" Content="Место" HorizontalAlignment="Left" Margin="70,296,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnPlace_Click"/>
-        <Button x:Name="BtnScene" Content="Сцены" HorizontalAlignment="Center" Margin="0,296,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnScene_Click"/>
-        <Button x:Name="BtnNamePlace" Content="Названия &#xD;&#xA;мест" HorizontalAlignment="Left" Margin="215,296,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnNamePlace_Click"/>
-        <Button x:Name="BtnClient" Content="Посетители" HorizontalAlignment="Center" Margin="0,196,0,0" VerticalAlignment="Top" Height="48" Width="80" Background="#FFB5739D" Click="BtnClient_Click"/>
+        <Button x:Name="BtnFest" Content="Фестиваль" HorizontalAlignment="Left" Margin="48,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Click="BtnFest_Click" BorderBrush="White" Background="#FFB5739D" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnJobTitle" Content="Должности" HorizontalAlignment="Left" Margin="635,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnJobTitle_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnRole" Content="Роли" HorizontalAlignment="Left" Margin="486,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnRole_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnOrders" Content="Заказы" HorizontalAlignment="Left" Margin="48,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnOrders_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnGenre" Content="Жанр" HorizontalAlignment="Left" Margin="635,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnGenre_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnSongs" Content="Песни" HorizontalAlignment="Left" Margin="338,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnSongs_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnArtist" Content="Исполнители" HorizontalAlignment="Left" Margin="194,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnArtist_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnTicketType" Content="Тип билетов" HorizontalAlignment="Left" Margin="635,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnTicketType_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnStaff" Content="Сотрудники" HorizontalAlignment="Left" Margin="486,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnStaff_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnTicket" Content="Билеты" HorizontalAlignment="Left" Margin="194,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnTicket_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnSpeeches" Content="Выступления" HorizontalAlignment="Left" Margin="486,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" RenderTransformOrigin="2.613,5.863" Click="BtnSpeeches_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnPlace" Content="Место" HorizontalAlignment="Left" Margin="48,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnPlace_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnScene" Content="Сцены" HorizontalAlignment="Left" Margin="338,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnScene_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnNamePlace" HorizontalAlignment="Left" Margin="194,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnNamePlace_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White">
+            <Button.Content>
+                <TextBlock Text="Названия мест" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="BtnClient" Content="Посетители" HorizontalAlignment="Left" Margin="338,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnClient_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnReports" Content="Отчеты" HorizontalAlignment="Left" Margin="338,335,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" BorderBrush="White" FontFamily="Arial Black" Foreground="White" Click="BtnReports_Click"/>
 
     </Grid>
 </Page>

@@ -7,6 +7,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicFestival", "MusicFesti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "..\UnitTestProject\UnitTestProject.csproj", "{DD345863-E470-4143-B4FC-D66C7A8032C7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{FF27BC41-AF79-4441-B500-B456F636FDEB}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Рабочий стол\Icons\add.png = ..\..\..\OneDrive\Рабочий стол\Icons\add.png
+		arrow_back.png = arrow_back.png
+		..\..\..\OneDrive\Рабочий стол\Icons\artist.png = ..\..\..\OneDrive\Рабочий стол\Icons\artist.png
+		..\..\..\OneDrive\Рабочий стол\Icons\clients.png = ..\..\..\OneDrive\Рабочий стол\Icons\clients.png
+		..\..\..\OneDrive\Рабочий стол\Icons\delete.png = ..\..\..\OneDrive\Рабочий стол\Icons\delete.png
+		..\..\..\OneDrive\Рабочий стол\Icons\festival.png = ..\..\..\OneDrive\Рабочий стол\Icons\festival.png
+		..\..\..\OneDrive\Рабочий стол\Icons\genres.png = ..\..\..\OneDrive\Рабочий стол\Icons\genres.png
+		..\..\..\OneDrive\Рабочий стол\Icons\jobTitle.png = ..\..\..\OneDrive\Рабочий стол\Icons\jobTitle.png
+		..\..\..\OneDrive\Рабочий стол\Icons\lyrics.png = ..\..\..\OneDrive\Рабочий стол\Icons\lyrics.png
+		..\..\..\OneDrive\Рабочий стол\Icons\music_note.png = ..\..\..\OneDrive\Рабочий стол\Icons\music_note.png
+		..\..\..\OneDrive\Рабочий стол\Icons\namePlace.png = ..\..\..\OneDrive\Рабочий стол\Icons\namePlace.png
+		..\..\..\OneDrive\Рабочий стол\Icons\orders.png = ..\..\..\OneDrive\Рабочий стол\Icons\orders.png
+		..\..\..\OneDrive\Рабочий стол\Icons\perfom.png = ..\..\..\OneDrive\Рабочий стол\Icons\perfom.png
+		..\..\..\OneDrive\Рабочий стол\Icons\place.png = ..\..\..\OneDrive\Рабочий стол\Icons\place.png
+		..\..\..\OneDrive\Рабочий стол\Icons\podium.png = ..\..\..\OneDrive\Рабочий стол\Icons\podium.png
+		..\..\..\OneDrive\Рабочий стол\Icons\role.png = ..\..\..\OneDrive\Рабочий стол\Icons\role.png
+		..\..\..\OneDrive\Рабочий стол\Icons\staff.png = ..\..\..\OneDrive\Рабочий стол\Icons\staff.png
+		..\..\..\OneDrive\Рабочий стол\Icons\ticket.png = ..\..\..\OneDrive\Рабочий стол\Icons\ticket.png
+		..\..\..\OneDrive\Рабочий стол\Icons\type.png = ..\..\..\OneDrive\Рабочий стол\Icons\type.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -28,12 +28,7 @@ namespace MusicFestival
             InitializeComponent();
             DGridFestival.ItemsSource = MusFestivalEntities.GetContext().Место.ToList();
         }
-
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        
+ 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
@@ -42,7 +37,22 @@ namespace MusicFestival
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            var PlaceRemov = DGridFestival.SelectedItems.Cast<Место>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {PlaceRemov.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MusFestivalEntities.GetContext().Место.RemoveRange(PlaceRemov);
+                    MusFestivalEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToLower());
+                }
+            }
         }
 
         private void DGridFestival_SelectionChanged(object sender, SelectionChangedEventArgs e)

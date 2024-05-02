@@ -33,7 +33,7 @@ namespace MusicFestival
 
             if (string.IsNullOrWhiteSpace(_currentStaff.имя))
                 errors.AppendLine("Введите ФИО сотрудника!");
-            if ((_currentStaff.должность == null) || (CmbJobTitle.Text == ""))
+            if ((_currentStaff.должность == null))
                 errors.AppendLine("Выберите должность сотрудника!");
 
             else

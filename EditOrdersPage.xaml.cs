@@ -21,7 +21,6 @@ namespace MusicFestival
     public partial class EditOrdersPage : Page
     {
         private Заказы _currentOrders = new Заказы();
-        private Посетители _currentPerson = new Посетители();
         public EditOrdersPage()
         {
             InitializeComponent();
@@ -31,9 +30,6 @@ namespace MusicFestival
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-
-            if ((_currentPerson.ФИО == null))
-                errors.AppendLine("Укажите имя заказчика!");
             if ((_currentOrders.дата_брони == null))
                 errors.AppendLine("Укажите дату брони билета!");
 
@@ -43,7 +39,7 @@ namespace MusicFestival
                 return;
             }
 
-            if ((_currentOrders.id_заказа == 0) && (_currentOrders.id_билета == 0) && (_currentOrders.id_посетителя == _currentPerson.id_посетителя) && (_currentOrders.id_посетителя == 0))
+            if ((_currentOrders.id_заказа == 0))
                 MusFestivalEntities.GetContext().Заказы.Add(_currentOrders);
 
             try
@@ -65,7 +61,6 @@ namespace MusicFestival
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)
         {
-            TbxName.Text = "";
             TbxDateOrders.Text = "";
         }
     }

@@ -34,7 +34,22 @@ namespace MusicFestival
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var RoleRemov = DGridRole.SelectedItems.Cast<Роли>().ToList();
 
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {RoleRemov.Count()} элементов", "Внимание",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    MusFestivalEntities.GetContext().Роли.RemoveRange(RoleRemov);
+                    MusFestivalEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToLower());
+                }
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

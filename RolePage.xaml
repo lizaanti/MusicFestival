@@ -19,20 +19,14 @@
                 <DataGridTextColumn Header="Пароль" Binding="{Binding пароль}" Width="200" Foreground="#FFB5739D"></DataGridTextColumn>
                 <DataGridTextColumn Header="Роль" Binding="{Binding роль}" Width="*" Foreground="#FFB5739D"></DataGridTextColumn>
 
-                <DataGridTemplateColumn Width="Auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Background="#FFB5739D"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+            
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Добавить" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Background="#FFB5739D" Width="159" Margin="165,0,0,0" Grid.Row="1"/>
         <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnDelete" Click="BtnDelete_Click" Background="#FFB5739D" Margin="474,0,0,0" Width="161" Height="50" VerticalAlignment="Top"></Button>
-        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center" Height="50" Width="73" Grid.Row="1" Click="BtnBack_Click">
+        <Button x:Name="BtnBack" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="51" Width="62" FontSize="15" Click="BtnBack_Click" BorderBrush="{x:Null}" Foreground="{x:Null}" BorderThickness="0,0,0,0" Margin="10,0,0,0" Grid.Row="1">
             <Button.Background>
-                <ImageBrush ImageSource="/arrow_back.png"/>
+                <ImageBrush ImageSource="/arrow_back.png" Stretch="None"/>
             </Button.Background>
         </Button>
     </Grid>

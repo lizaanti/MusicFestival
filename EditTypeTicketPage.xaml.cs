@@ -32,11 +32,11 @@ namespace MusicFestival
         {
             StringBuilder errors = new StringBuilder();
 
-            if ((_currentType.тип == null) || (CmbTicketType.Text == ""))
+            if ((_currentType.тип == null))
                 errors.AppendLine("Укажите тип билета!");
 
             else
-                _currentType.тип = CmbTicketType.Text;
+                _currentType.тип = TbxTicketType.Text;
 
             if (errors.Length > 0)
             {
@@ -60,7 +60,7 @@ namespace MusicFestival
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)
         {
-            CmbTicketType.Text = "";
+            TbxTicketType.Text = "";
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

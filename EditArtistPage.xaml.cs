@@ -34,7 +34,7 @@ namespace MusicFestival
 
             if (string.IsNullOrWhiteSpace(_currentArtist.имя))
                 errors.AppendLine("Укажите имя исполнителя!");
-            if ((_currentArtist.имя == null) || (CmbGenre.Text == ""))
+            if ((_currentArtist.имя == null))
                 errors.AppendLine("Выберите жанр исполнителя!");
             else
             {
