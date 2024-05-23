@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private Роли _currentRole = new Роли();
 
+        public string role;
+
         public EditRolePage()
         {
             InitializeComponent();
@@ -73,7 +75,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("RolePage.xaml", UriKind.Relative));
+            RolePage newPage = new RolePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

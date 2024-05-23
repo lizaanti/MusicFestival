@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private Должность _currentJT = new Должность();
 
+        public string role;
+
         public EditJobTitlePage()
         {
             InitializeComponent();
@@ -66,7 +68,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("JobTitlePage.xaml", UriKind.Relative));
+            JobTitlePage newPage = new JobTitlePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

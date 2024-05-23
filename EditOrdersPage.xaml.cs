@@ -21,6 +21,9 @@ namespace MusicFestival
     public partial class EditOrdersPage : Page
     {
         private Заказы _currentOrders = new Заказы();
+
+        public string role;
+
         public EditOrdersPage()
         {
             InitializeComponent();
@@ -56,7 +59,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("OrdersPage.xaml", UriKind.Relative));
+            OrdersPage newPage = new OrdersPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)

@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private Билеты _currentTicket = new Билеты();
 
+        public string role;
+
         public EditTicketPage()
         {
             InitializeComponent();
@@ -66,7 +68,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("TicketPage.xaml", UriKind.Relative));
+            TicketPage newPage = new TicketPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)

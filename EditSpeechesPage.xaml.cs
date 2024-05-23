@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace MusicFestival
     /// </summary>
     public partial class EditSpeechesPage : Page
     {
+        public string role;
+
         private Выступления _currentSpeeches = new Выступления();
         public EditSpeechesPage()
         {
@@ -60,7 +63,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("SpeechesPage.xaml", UriKind.Relative));
+            SpeechesPage newPage = new SpeechesPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)

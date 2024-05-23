@@ -21,6 +21,9 @@ namespace MusicFestival
     public partial class EditStaffPage : Page
     {
         private Сотрудники _currentStaff = new Сотрудники();
+
+        public string role;
+
         public EditStaffPage()
         {
             InitializeComponent();
@@ -62,7 +65,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StaffPage.xaml", UriKind.Relative));
+            StaffPage newPage = new StaffPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)

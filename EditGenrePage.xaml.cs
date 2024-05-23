@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private Жанр _currentGenre = new Жанр();
 
+        public string role;
+
         public EditGenrePage()
         {
             InitializeComponent();
@@ -66,7 +68,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("GenrePage.xaml", UriKind.Relative));
+            GenrePage newPage = new GenrePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

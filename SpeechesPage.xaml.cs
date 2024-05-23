@@ -20,6 +20,7 @@ namespace MusicFestival
     /// </summary>
     public partial class SpeechesPage : Page
     {
+        public string role;
 
         public SpeechesPage()
         {
@@ -30,13 +31,17 @@ namespace MusicFestival
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("EditSpeechesPage.xaml", UriKind.Relative));
+            EditSpeechesPage newPage = new EditSpeechesPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+            StartPage newPage = new StartPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

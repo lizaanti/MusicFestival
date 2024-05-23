@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +22,10 @@ namespace MusicFestival
     /// </summary>
     public partial class EditClientPage : Page
     {
+        
         private Посетители _currentClient = new Посетители();
+
+        public string role;
 
         public EditClientPage()
         {
@@ -32,7 +36,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ClientPage.xaml", UriKind.Relative));
+            ClientPage newPage = new ClientPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)

@@ -21,6 +21,9 @@ namespace MusicFestival
     public partial class EditSongPage : Page
     {
         private Песни _currentSong = new Песни();
+
+        public string role;
+
         public EditSongPage()
         {
             InitializeComponent();
@@ -64,7 +67,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("SongsPage.xaml", UriKind.Relative));
+            SongsPage newPage = new SongsPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

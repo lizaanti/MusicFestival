@@ -14,7 +14,7 @@
         <Button x:Name="BtnRole" Content="Роли" HorizontalAlignment="Left" Margin="486,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnRole_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
         <Button x:Name="BtnOrders" Content="Заказы" HorizontalAlignment="Left" Margin="48,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnOrders_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
         <Button x:Name="BtnGenre" Content="Жанр" HorizontalAlignment="Left" Margin="635,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnGenre_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
-        <Button x:Name="BtnSongs" Content="Песни" HorizontalAlignment="Left" Margin="338,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnSongs_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
+        <Button x:Name="BtnSongs" Content="Песни" HorizontalAlignment="Left" Margin="338,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnSongs_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White" Visibility="{Binding role}"/>
         <Button x:Name="BtnArtist" Content="Исполнители" HorizontalAlignment="Left" Margin="194,39,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnArtist_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
         <Button x:Name="BtnTicketType" Content="Тип билетов" HorizontalAlignment="Left" Margin="635,247,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnTicketType_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
         <Button x:Name="BtnStaff" Content="Сотрудники" HorizontalAlignment="Left" Margin="486,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnStaff_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
@@ -29,6 +29,11 @@
         </Button>
         <Button x:Name="BtnClient" Content="Посетители" HorizontalAlignment="Left" Margin="338,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnClient_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
         <Button x:Name="BtnReports" Content="Отчеты" HorizontalAlignment="Left" Margin="338,335,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" BorderBrush="White" FontFamily="Arial Black" Foreground="White" Click="BtnReports_Click"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="48,335,0,0" VerticalAlignment="Top" Height="83" Width="73" Foreground="White" BorderBrush="#FFFFA2DD">
+            <Button.Background>
+                <ImageBrush ImageSource="/door_back.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Page>

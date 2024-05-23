@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private ТипБилета _currentType = new ТипБилета();
 
+        public string role;
+
         public EditTypeTicketPage()
         {
             InitializeComponent();
@@ -66,7 +68,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("TypeTicketPage.xaml", UriKind.Relative));
+            TypeTicketPage newPage = new TypeTicketPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

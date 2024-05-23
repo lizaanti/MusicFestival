@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private НазваниеМест _currentNPlace = new НазваниеМест();
 
+        public string role;
+
         public EditNamePlacePage()
         {
             InitializeComponent();
@@ -66,7 +68,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("NamePlacePage.xaml", UriKind.Relative));
+            NamePlacePage newPage = new NamePlacePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

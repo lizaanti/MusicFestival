@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicFestival"
         mc:Ignorable="d"
-        Title="Музыкальный фестиваль" Height="450" Width="800">
+        Title="Музыкальный фестиваль" Height="450" Width="800"
+        Icon="pack://application:,,,/music_note.png"
+        ResizeMode="NoResize">
     <Grid Background="#FFFFA2DD">
         <Frame x:Name="MainFrame" Grid.Column ="1" Source="AuthPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

@@ -20,6 +20,8 @@ namespace MusicFestival
     /// </summary>
     public partial class ArtistPage : Page
     {
+        public string role;
+
         public ArtistPage()
         {
             InitializeComponent();
@@ -55,7 +57,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+            StartPage newPage = new StartPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

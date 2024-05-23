@@ -23,6 +23,8 @@ namespace MusicFestival
     {
         private Сцены _currentScene = new Сцены();
 
+        public string role;
+
         public EditScenePage()
         {
             InitializeComponent();
@@ -67,7 +69,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ScenePage.xaml", UriKind.Relative));
+            ScenePage newPage = new ScenePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }

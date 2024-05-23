@@ -21,6 +21,8 @@ namespace MusicFestival
     public partial class AddEditPage : Page
     {
         private Место _currentPlace = new Место();
+
+        public string role;
         
         public AddEditPage()
         {
@@ -73,7 +75,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("PlacesPage.xaml", UriKind.Relative));
+            PlacesPage newPage = new PlacesPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnCanel_Click(object sender, RoutedEventArgs e)

@@ -20,6 +20,8 @@ namespace MusicFestival
     /// </summary>
     public partial class TicketPage : Page
     {
+        public string role;
+
         public TicketPage()
         {
             InitializeComponent();
@@ -29,13 +31,17 @@ namespace MusicFestival
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("EditTicketPage.xaml", UriKind.Relative));
+            EditTicketPage newPage = new EditTicketPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StartPage.xaml", UriKind.Relative));
+            StartPage newPage = new StartPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

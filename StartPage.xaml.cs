@@ -21,6 +21,9 @@ namespace MusicFestival
     public partial class StartPage : Page
     {
         public string role;
+
+        
+
         public StartPage()
         {
             InitializeComponent();
@@ -28,113 +31,198 @@ namespace MusicFestival
 
         private void BtnFest_Click(object sender, RoutedEventArgs e)
         {
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("FestivalPage.xaml", UriKind.Relative));
+            FestivalPage newPage = new FestivalPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnArtist_Click(object sender, RoutedEventArgs e)
         {
-            
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ArtistPage.xaml", UriKind.Relative));
+            ArtistPage newPage = new ArtistPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
+        }
+
+        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
         }
 
         private void BtnSongs_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость")
+            {
+                return;
+            }
+
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("SongsPage.xaml", UriKind.Relative));
+            SongsPage newPage = new SongsPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnSpeeches_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость")
+            {
+                return;
+            }
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("SpeechesPage.xaml", UriKind.Relative));
+            SpeechesPage newPage = new SpeechesPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnGenre_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("GenrePage.xaml", UriKind.Relative));
+            GenrePage newPage = new GenrePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnOrders_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость" || role == "Артист")
+            {
+                return;
+            }
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("OrdersPage.xaml", UriKind.Relative));
+            OrdersPage newPage = new OrdersPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnTicket_Click(object sender, RoutedEventArgs e)
         {
-            
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("TicketPage.xaml", UriKind.Relative));
+            TicketPage newPage = new TicketPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnClient_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость" || role == "Артист")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ClientPage.xaml", UriKind.Relative));
+            ClientPage newPage = new ClientPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnStaff_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость" || role == "Артист")
+            {
+                return;
+            }
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("StaffPage.xaml", UriKind.Relative));
+            StaffPage newPage = new StaffPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnJobTitle_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость" || role == "Артист")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("JobTitlePage.xaml", UriKind.Relative));
+            JobTitlePage newPage = new JobTitlePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnPlace_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость")
+            {
+                return;
+            }
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("PlacesPage.xaml", UriKind.Relative));
+            PlacesPage newPage = new PlacesPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnNamePlace_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            if (role == "Гость" || role == "Артист")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("NamePlacePage.xaml", UriKind.Relative));
+            NamePlacePage newPage = new NamePlacePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnScene_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ScenePage.xaml", UriKind.Relative));
+            ScenePage newPage = new ScenePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnRole_Click(object sender, RoutedEventArgs e)
         {
-            
+            Console.WriteLine(role);
+            if (role == "Гость" || role == "Артист" || role == "Сотрудник")
+            {
+
+                return;
+                
+            }
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("RolePage.xaml", UriKind.Relative));
+            RolePage newPage = new RolePage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnTicketType_Click(object sender, RoutedEventArgs e)
         {
-            
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("TypeTicketPage.xaml", UriKind.Relative));
+            TypeTicketPage newPage = new TypeTicketPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
 
         private void BtnReports_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (role == "Гость" || role == "Артист")
+            {
+                return;
+            }
+
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("ReportsPage.xaml", UriKind.Relative));
+            ReportsPage newPage = new ReportsPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
+
     }
 }

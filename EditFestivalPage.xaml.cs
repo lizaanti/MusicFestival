@@ -22,6 +22,8 @@ namespace MusicFestival
     {
         private Фестиваль _currentFest = new Фестиваль();
 
+        public string role;
+
         public EditFestivalPage()
         {
             InitializeComponent();
@@ -70,7 +72,9 @@ namespace MusicFestival
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new Uri("FestivalPage.xaml", UriKind.Relative));
+            FestivalPage newPage = new FestivalPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
         }
     }
 }
