@@ -30,12 +30,20 @@ namespace MusicFestival
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Гость")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new Uri("EditArtistPage.xaml", UriKind.Relative));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Гость")
+            {
+                return;
+            }
             var ArtistRemov = DGridArtist.SelectedItems.Cast<Исполнители>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить следующие {ArtistRemov.Count()} элементов", "Внимание",

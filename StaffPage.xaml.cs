@@ -30,6 +30,10 @@ namespace MusicFestival
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Сотрудник")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
             EditStaffPage newPage = new EditStaffPage();
             newPage.role = role;
@@ -38,6 +42,10 @@ namespace MusicFestival
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Сотрудник")
+            {
+                return;
+            }
             var StaffRemov = DGridStaff.SelectedItems.Cast<Сотрудники>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить следующие {StaffRemov.Count()} элементов", "Внимание",

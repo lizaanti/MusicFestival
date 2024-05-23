@@ -224,5 +224,13 @@ namespace MusicFestival
             nav.Navigate(newPage);
         }
 
+        private void LogOutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav = NavigationService.GetNavigationService(this);
+            AuthPage newPage = new AuthPage();
+            newPage.role = role;
+            nav.Navigate(newPage);
+            
+        }
     }
 }

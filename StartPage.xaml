@@ -29,7 +29,7 @@
         </Button>
         <Button x:Name="BtnClient" Content="Посетители" HorizontalAlignment="Left" Margin="338,141,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" Click="BtnClient_Click" BorderBrush="White" FontFamily="Arial Black" Foreground="White"/>
         <Button x:Name="BtnReports" Content="Отчеты" HorizontalAlignment="Left" Margin="338,335,0,0" VerticalAlignment="Top" Height="70" Width="100" Background="#FFB5739D" BorderBrush="White" FontFamily="Arial Black" Foreground="White" Click="BtnReports_Click"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="48,335,0,0" VerticalAlignment="Top" Height="83" Width="73" Foreground="White" BorderBrush="#FFFFA2DD">
+        <Button x:Name="LogOutBtn" Content="" HorizontalAlignment="Left" Margin="48,335,0,0" VerticalAlignment="Top" Height="83" Width="73" Foreground="White" BorderBrush="#FFFFA2DD" Click="LogOutBtn_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/door_back.png"/>
             </Button.Background>

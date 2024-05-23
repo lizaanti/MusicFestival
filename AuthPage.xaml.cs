@@ -20,7 +20,8 @@ namespace MusicFestival
     /// </summary>
     public partial class AuthPage : Page
     {
-        
+        public string role;
+
         public AuthPage()
         {
             InitializeComponent();
@@ -47,6 +48,8 @@ namespace MusicFestival
                 if (role == null)
                 {
                     MessageBox.Show("Пользователь с такими данными не найден!");
+                    LoginTB.Clear();
+                    PassTB.Clear();
                     return false;
                 }
                 else

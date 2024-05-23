@@ -33,6 +33,10 @@ namespace MusicFestival
  
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Артист")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
             AddEditPage newPage = new AddEditPage();
             newPage.role = role;
@@ -41,6 +45,10 @@ namespace MusicFestival
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Артист")
+            {
+                return;
+            }
             var PlaceRemov = DGridFestival.SelectedItems.Cast<Место>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить следующие {PlaceRemov.Count()} элементов", "Внимание",

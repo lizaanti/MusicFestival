@@ -30,6 +30,10 @@ namespace MusicFestival
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if(role == "Сотрудник")
+            {
+                return;
+            }
             NavigationService nav = NavigationService.GetNavigationService(this);
             EditJobTitlePage newPage = new EditJobTitlePage();
             newPage.role = role;
@@ -38,6 +42,10 @@ namespace MusicFestival
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (role == "Сотрудник")
+            {
+                return;
+            }
             var JTRemov = DGridJobTitle.SelectedItems.Cast<Должность>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить следующие {JTRemov.Count()} элементов", "Внимание",
